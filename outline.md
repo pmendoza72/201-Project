@@ -33,7 +33,7 @@ Controls hidden
 If no blackjack:
 Player decides on hit vs stay
 Player hits until they bust or stay
-If bust Results 
+If bust Results
 
 If player stays the dealer’s turn
 Dealer hits until they bust or stay within rules (logic) (Stay on 17 or higher)
