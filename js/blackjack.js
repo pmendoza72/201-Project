@@ -57,22 +57,22 @@ Game.prototype.getName = function() {
 }
 
 Game.prototype.getCardPath = function(type, suit) {
-  return type + '_of_' + suit + '.png';
+  return 'cards/' + type + '_of_' + suit + '.png';
 }
 
 var suits = ['spades', 'clubs', 'diamonds', 'hearts'];
 
 var cardtypes = [
   ['ace', 1],
-  ['two', 2],
-  ['three', 3],
-  ['four', 4],
-  ['five', 5],
-  ['six', 6],
-  ['seven', 7],
-  ['eight', 8],
-  ['nine', 9],
-  ['ten', 10],
+  ['2', 2],
+  ['3', 3],
+  ['4', 4],
+  ['5', 5],
+  ['6', 6],
+  ['7', 7],
+  ['8', 8],
+  ['9', 9],
+  ['10', 10],
   ['jack', 10],
   ['queen', 10],
   ['king', 10]
