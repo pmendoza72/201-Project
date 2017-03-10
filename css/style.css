@@ -49,3 +49,17 @@ footer {
     align-items: flex-start;
 }
 */
+#nameForm {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#nameForm fieldset {
+  border:1px dashed black;
+  margin: 0;
+  padding: 10px;
+}
+#nameForm input {
+  margin-top: 5px;
+}
