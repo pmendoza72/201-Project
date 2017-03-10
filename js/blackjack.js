@@ -14,6 +14,7 @@ function Deck() {
   this.cards = []; //Numbers, representing the cards in the deck. Shuffle and draw from this array
 }
 //Deck methods here
+
 //get a copy of the first card in the deck.
 Deck.prototype.drawCard = function() {
   var index = this.cards.pop();
@@ -40,6 +41,7 @@ Deck.prototype.shuffle = function() {
 function Hand() {
   this.cardObjects = []; //store copies of the Card objects here for easier reference.
 }
+//Hand methods here
 
 //Object keeping track of various parts of the game, like the Player's name and money, and any options we add.
 //Game logic also goes here.
@@ -50,3 +52,47 @@ function Game(playerName, startMoney) {
   this.roundInProgress = false;
 }
 //Game methods here
+Game.prototype.getName = function() {
+  this.playerName = localStorage.getItem('name');
+}
+
+Game.prototype.getCardPath = function(type, suit) {
+  return type + '_of_' + suit + '.png';
+}
+
+var suits = ['spades', 'clubs', 'diamonds', 'hearts'];
+
+var cardtypes = [
+  ['ace', 1],
+  ['two', 2],
+  ['three', 3],
+  ['four', 4],
+  ['five', 5],
+  ['six', 6],
+  ['seven', 7],
+  ['eight', 8],
+  ['nine', 9],
+  ['ten', 10],
+  ['jack', 10],
+  ['queen', 10],
+  ['king', 10]
+];
+
+var game = new Game();
+var playerHand = new Hand();
+var dealerHand = new Hand();
+var deck = new Deck();
+
+game.getName();
+for (var i = 0; i < suits.length; i++) {
+  for (var j = 0; j < cardtypes.length; j++) {
+    deck.cardObjects.push(new Card(game.getCardPath(
+      cardtypes[j][0], suits[i]) ,cardtypes[j][1]))
+  }
+}
+
+for (var i = 0; i < 52; i++) {
+  deck.cards.push(i);
+}
+deck.shuffle();
+//ready to start the game
