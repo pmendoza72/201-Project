@@ -131,20 +131,31 @@ Game.prototype.startRound = function() {
   // setTimeout (#Deal to player#, 1500);
   // setTimeout (#Deal to dealer#, 2000);
 
-  setTimeout(this.checkBlackjack, 3000);
+  setTimeout(game.checkBlackjack, 3000);
 }
 
 Game.prototype.checkBlackjack = function() {
   if(dealerHand.getValue() === 21) {
-    this.endRound('dealerBlackjack');
+    game.endRound('dealerBlackjack');
     return;
   }
   else if (playerHand.getValue() === 21) {
-    this.endRound('playerBlackjack');
+    game.endRound('playerBlackjack');
     return;
   }
 
   //if no blackjack, enable the player turn controls.
+}
+
+Game.prototype.playerHit = function() {
+  playerHand.draw();
+  if(playerHand.getValue() > 21) {
+    game.endRound('playerBust');
+  }
+}
+
+Game.prototype.playerStand = function() {
+  setTimeout(game.dealerTurn, 500);
 }
 
 //recursively plays the dealer's turn.
@@ -156,7 +167,7 @@ Game.prototype.dealerTurn = function() {
   else {
     //dealer hits
     dealerHand.draw();
-    if(dealerHand.getValue > 21) {
+    if(dealerHand.getValue() > 21) {
       game.endRound('dealerBust');
       return;
     }
