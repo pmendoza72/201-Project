@@ -38,10 +38,22 @@ Deck.prototype.shuffle = function() {
   }
 }
 
+Deck.prototype.reset = function() {
+  this.cards = [];
+  for (var i = 0; i < 52; i++) {
+    this.cards.push(i);
+  }
+  this.shuffle();
+}
+
 function Hand() {
   this.cardObjects = []; //store copies of the Card objects here for easier reference.
 }
 //Hand methods here
+
+Hand.prototype.empty = function() {
+  this.cardObjects = [];
+}
 
 //Object keeping track of various parts of the game, like the Player's name and money, and any options we add.
 //Game logic also goes here.
@@ -59,6 +71,64 @@ Game.prototype.getName = function() {
 Game.prototype.getCardPath = function(type, suit) {
   return 'cards/' + type + '_of_' + suit + '.png';
 }
+
+Game.prototype.startRound = function() {
+  if (playerMoney < 10) {
+    this.currentBet = this.playerMoney;
+    this.playerMoney = 0;
+  }
+  else {
+    this.currentBet = 10;
+    this.playerMoney -= this.currentBet;
+  }
+
+  setTimeout (#Deal to player#, 500);
+  setTimeout (#Deal to dealer#, 1000);
+  setTimeout (#Deal to player#, 1500);
+  setTimeout (#Deal to dealer#, 2000);
+
+}
+
+Game.prototype.endRound = function(outcome) {
+
+  //Outcomes
+
+  if (outcome === 'dealerBlackjack') {
+    alert('You lose.  Dealer has Blackjack.');
+  }
+  else if (outcome === 'playerBlackjack') {
+    this.playerMoney += (this.currentBet * 2);
+    alert('You win.  You have Blackjack');
+  }
+  else if (outcome === 'playerBust') {
+    alert('You lose.  You went over 21.');
+  }
+  else if (outcome === 'dealerBust') {
+    this.playerMoney += (this.currentBet * 2);
+    alert('You win.  Dealer went over 21.');
+  }
+  else if (outcome === 'pointsLose') {
+    alert('You lose.  Dealer scored higher than you.');
+  }
+  else if (outcome === 'pointsWin') {
+    this.playerMoney += (this.currentBet * 2);
+    alert('You win.  You scored higher than dealer.');
+  }
+  else if (outcome === 'push') {
+    this.playerMoney += this.currentBet;
+    alert('You\'ve tied.');
+  }
+  else {
+    alert('INVALID OUTCOME!')
+  }
+  this.currentBet = 0;
+  this.roundInProgress = false;
+  deck.reset();
+  dealerHand.empty();
+  playerHand.empty();
+}
+
+//Define types of cards
 
 var suits = ['spades', 'clubs', 'diamonds', 'hearts'];
 
@@ -91,8 +161,5 @@ for (var i = 0; i < suits.length; i++) {
   }
 }
 
-for (var i = 0; i < 52; i++) {
-  deck.cards.push(i);
-}
-deck.shuffle();
 //ready to start the game
+deck.reset();
