@@ -167,7 +167,7 @@ Game.prototype.dealerTurn = function() {
   else {
     //dealer hits
     dealerHand.draw();
-    if(dealerHand.getValue > 21) {
+    if(dealerHand.getValue() > 21) {
       game.endRound('dealerBust');
       return;
     }
