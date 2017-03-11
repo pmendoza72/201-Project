@@ -63,6 +63,8 @@ Hand.prototype.draw = function() {
   var card = deck.drawCard()
   console.log('drew card ' + card.file + ' ' + card.value);
   this.cardObjects.push(card);
+  game.clearCards();
+  game.renderCards();
 }
 
 //checks if this hand has an ace.
@@ -133,30 +135,32 @@ Game.prototype.startRound = function() {
   // setTimeout (#Deal to dealer#, 2000);
 
   setTimeout(game.checkBlackjack, 3000);
+  game.clearCards();
+  game.renderCards();
 }
 
 Game.prototype.renderCards = function() {
-  for (var i = 0; i < dealerHand; i++) {
+  for (var i = 0; i < dealerHand.cardObjects.length; i++) {
     this.dealerCardTd  = document.createElement('td');
     this.dealerCardTd.id = ('dealerCard' + (i + 1));
     this.dealerCardImg = document.createElement('img');
-    this.dealerCardImg.src = dealerHand.cardObject[i].file;
-    this.dealerCardTd.appendChild(this.cardImg);
+    this.dealerCardImg.src = dealerHand.cardObjects[i].file;
+    this.dealerCardTd.appendChild(this.dealerCardImg);
     dealerCards.appendChild(this.dealerCardTd);
   }
-  for (var i = 0; i < playerHand; i++) {
+  for (var i = 0; i < playerHand.cardObjects.length; i++) {
     this.playerCardTd  = document.createElement('td');
     this.playerCardTd.id = ('dealerCard' + (i + 1));
     this.playerCardImg = document.createElement('img');
-    this.playerCardImg.src = playerHand.cardObject[i].file;
-    this.playerCardTd.appendChild(this.cardImg);
-    dealerCards.appendChild(this.playerCardTd);
+    this.playerCardImg.src = playerHand.cardObjects[i].file;
+    this.playerCardTd.appendChild(this.playerCardImg);
+    playerCards.appendChild(this.playerCardTd);
   }
 }
 
 Game.prototype.clearCards = function() {
-  dealerCards.innerHtml = '';
-  playerCards.innerHtml = '';
+  dealerCards.innerHTML = '';
+  playerCards.innerHTML = '';
 }
 
 Game.prototype.checkBlackjack = function() {
