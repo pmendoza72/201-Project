@@ -59,6 +59,38 @@ Hand.prototype.empty = function() {
   this.cardObjects = [];
 }
 
+Hand.prototype.draw = function() {
+  var card = deck.drawCard()
+  console.log('drew card ' + card.file + ' ' + card.value);
+  this.cardObjects.push(card);
+}
+
+//checks if this hand has an ace.
+Hand.prototype.hasAce = function() {
+  for (var i = 0; i < this.cardObjects.length; i++) {
+    if(this.cardObjects[i].value === 1) {
+      return true;
+    }
+  }
+  return false;
+}
+
+//gets the value of the hand. Takes aces into account.
+Hand.prototype.getValue = function() {
+  var value = 0;
+  for (var i = 0; i < this.cardObjects.length; i++) {
+    value += this.cardObjects[i].value;
+  }
+
+  //add 10 for the ace if it helps
+  if(this.hasAce() && value <= 11) {
+    return value + 10;
+  }
+  else {
+    return value;
+  }
+}
+
 //Object keeping track of various parts of the game, like the Player's name and money, and any options we add.
 //Game logic also goes here.
 function Game(playerName, startMoney) {
@@ -77,7 +109,9 @@ Game.prototype.getCardPath = function(type, suit) {
 }
 
 Game.prototype.startRound = function() {
-  if (playerMoney < 10) {
+  this.roundInProgress = true;
+
+  if (this.playerMoney < 10) {
     this.currentBet = this.playerMoney;
     this.playerMoney = 0;
   }
@@ -86,6 +120,7 @@ Game.prototype.startRound = function() {
     this.playerMoney -= this.currentBet;
   }
 
+<<<<<<< HEAD
   // setTimeout (#Deal to player#, 500);
   // setTimeout (#Deal to dealer#, 1000);
   // setTimeout (#Deal to player#, 1500);
@@ -115,6 +150,80 @@ Game.prototype.renderCards = function() {
 Game.prototype.clearCards = function() {
   dealerCards.innerHtml = '';
   playerCards.innerHtml = '';
+=======
+  dealerHand.draw();
+  playerHand.draw();
+  dealerHand.draw();
+  playerHand.draw();
+
+  console.log(dealerHand.getValue());
+  console.log(playerHand.getValue());
+
+
+
+  // setTimeout (#Deal to player#, 500);
+  // setTimeout (#Deal to dealer#, 1000);
+  // setTimeout (#Deal to player#, 1500);
+  // setTimeout (#Deal to dealer#, 2000);
+
+  setTimeout(game.checkBlackjack, 3000);
+}
+
+Game.prototype.checkBlackjack = function() {
+  if(dealerHand.getValue() === 21) {
+    game.endRound('dealerBlackjack');
+    return;
+  }
+  else if (playerHand.getValue() === 21) {
+    game.endRound('playerBlackjack');
+    return;
+  }
+
+  //if no blackjack, enable the player turn controls.
+}
+
+Game.prototype.playerHit = function() {
+  playerHand.draw();
+  if(playerHand.getValue() > 21) {
+    game.endRound('playerBust');
+  }
+}
+
+Game.prototype.playerStand = function() {
+  setTimeout(game.dealerTurn, 500);
+}
+
+//recursively plays the dealer's turn.
+Game.prototype.dealerTurn = function() {
+  if(dealerHand.getValue() >= 17) {
+    //dealer stands
+    setTimeout(game.finalScore, 750);
+  }
+  else {
+    //dealer hits
+    dealerHand.draw();
+    if(dealerHand.getValue() > 21) {
+      game.endRound('dealerBust');
+      return;
+    }
+    setTimeout(game.dealerTurn, 750);
+  }
+}
+
+Game.prototype.finalScore = function() {
+  var playerScore = playerHand.getValue();
+  var dealerScore = dealerHand.getValue();
+
+  if(dealerScore > playerScore) {
+    game.endRound('pointsLose');
+  }
+  else if(playerScore > dealerScore) {
+    game.endRound('pointsWin');
+  }
+  else {
+    game.endRound('push');
+  }
+>>>>>>> e3a5f31ecab6a9b90b043dc9803181f327b8fb58
 }
 
 Game.prototype.endRound = function(outcome) {
@@ -189,5 +298,5 @@ for (var i = 0; i < suits.length; i++) {
   }
 }
 
-//ready to start the game
 deck.reset();
+//ready to start the game

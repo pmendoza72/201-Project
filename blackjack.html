@@ -3,14 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Final Project | BlackJack</title>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Monoton&effect=neon">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header>Header</header>
+<body class="blackjackbg">
+  <header><h2 class="font-effect-neon neonheader">Code Fellows BlackJack</h2></header>
   <main>
-    <section>Section</section>
+    <section>
+      <table class="cardtable">
+        <tr id="dealerCards">
+        </tr>
+        <tr id="playerCards">
+        </tr>
+      </table>
+    </section>
+    <section>
+      <table class="playercontrol">
+        <tr>
+          <td>HIT</td>
+          <td>STAND</td>
+          <td>NEW GAME</td>
+        </tr>
+      </table>
+    </section>
   </main>
-  <footer>Footer</footer>
+  <footer></footer>
   <script src="js/blackjack.js"></script>
 </body>
 </html>
