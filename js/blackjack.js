@@ -119,13 +119,20 @@ Game.prototype.startRound = function() {
     this.currentBet = 10;
     this.playerMoney -= this.currentBet;
   }
+  dealerHand.draw();
+  playerHand.draw();
+  dealerHand.draw();
+  playerHand.draw();
 
-<<<<<<< HEAD
+  console.log(dealerHand.getValue());
+  console.log(playerHand.getValue());
+
   // setTimeout (#Deal to player#, 500);
   // setTimeout (#Deal to dealer#, 1000);
   // setTimeout (#Deal to player#, 1500);
   // setTimeout (#Deal to dealer#, 2000);
 
+  setTimeout(game.checkBlackjack, 3000);
 }
 
 Game.prototype.renderCards = function() {
@@ -150,23 +157,6 @@ Game.prototype.renderCards = function() {
 Game.prototype.clearCards = function() {
   dealerCards.innerHtml = '';
   playerCards.innerHtml = '';
-=======
-  dealerHand.draw();
-  playerHand.draw();
-  dealerHand.draw();
-  playerHand.draw();
-
-  console.log(dealerHand.getValue());
-  console.log(playerHand.getValue());
-
-
-
-  // setTimeout (#Deal to player#, 500);
-  // setTimeout (#Deal to dealer#, 1000);
-  // setTimeout (#Deal to player#, 1500);
-  // setTimeout (#Deal to dealer#, 2000);
-
-  setTimeout(game.checkBlackjack, 3000);
 }
 
 Game.prototype.checkBlackjack = function() {
@@ -223,7 +213,6 @@ Game.prototype.finalScore = function() {
   else {
     game.endRound('push');
   }
->>>>>>> e3a5f31ecab6a9b90b043dc9803181f327b8fb58
 }
 
 Game.prototype.endRound = function(outcome) {
