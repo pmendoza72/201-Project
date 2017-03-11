@@ -2,7 +2,7 @@
 @import url("reset.css");
 
 body {
-  border: 4px solid red;
+  /*border: 4px solid red;*/
 }
 
 header, footer, aside, section {
@@ -10,17 +10,26 @@ header, footer, aside, section {
 }
 
 header {
-  border: 4px solid blue;
+  /*border: 4px solid blue;*/
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+header h2 {
+  font-size: 80px;
+  padding: 15px 0;
 }
 
 main {
-  border: 4px solid #e2da1d;
+  /*border: 4px solid #e2da1d;*/
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 aside {
@@ -28,15 +37,61 @@ aside {
 }
 
 section {
-  border: 2px dashed #28065b;
+  /*border: 2px dashed #28065b;*/
   display: flex;
   justify-content: center;
   align-content: center;
 }
 
 footer {
-  border: 4px solid #8e641e;
+  /*border: 4px solid #8e641e;*/
   margin-bottom: 30px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+table {
+  border: 4px solid #ccc;
+  border-radius: 15px;
+  border-collapse: separate;
+  background: rgba(255,255,255,0.2);
+}
+
+table .cardtable {
+  margin: 30px 0;
+  height: 620px;
+}
+
+table .playercontrol {
+  height: 150px;
+}
+
+tr {
+
+}
+
+td {
+  /*border: 1px dashed red;*/
+  padding: 15px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
 }
 
 /* FlexBox
@@ -62,4 +117,19 @@ footer {
 }
 #nameForm input {
   margin-top: 5px;
+}
+
+.blackjackbg {
+  background: url('../img/lucky_8_line.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+.neonheader {
+  font-family: Monoton;
+  /*font-size: 8em;*/
+  text-align: center;
 }
