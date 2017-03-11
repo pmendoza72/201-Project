@@ -1,4 +1,8 @@
 'use strict'
+
+var dealerCards = document.getElementById('dealerCards');
+var playerCards = document.getElementById('playerCards');
+
 //CONSTRUCTORS
 function Card(file, value) {
   this.file = file;
@@ -115,7 +119,6 @@ Game.prototype.startRound = function() {
     this.currentBet = 10;
     this.playerMoney -= this.currentBet;
   }
-
   dealerHand.draw();
   playerHand.draw();
   dealerHand.draw();
@@ -124,14 +127,36 @@ Game.prototype.startRound = function() {
   console.log(dealerHand.getValue());
   console.log(playerHand.getValue());
 
-
-
   // setTimeout (#Deal to player#, 500);
   // setTimeout (#Deal to dealer#, 1000);
   // setTimeout (#Deal to player#, 1500);
   // setTimeout (#Deal to dealer#, 2000);
 
   setTimeout(game.checkBlackjack, 3000);
+}
+
+Game.prototype.renderCards = function() {
+  for (var i = 0; i < dealerHand; i++) {
+    this.dealerCardTd  = document.createElement('td');
+    this.dealerCardTd.id = ('dealerCard' + (i + 1));
+    this.dealerCardImg = document.createElement('img');
+    this.dealerCardImg.src = dealerHand.cardObject[i].file;
+    this.dealerCardTd.appendChild(this.cardImg);
+    dealerCards.appendChild(this.dealerCardTd);
+  }
+  for (var i = 0; i < playerHand; i++) {
+    this.playerCardTd  = document.createElement('td');
+    this.playerCardTd.id = ('dealerCard' + (i + 1));
+    this.playerCardImg = document.createElement('img');
+    this.playerCardImg.src = playerHand.cardObject[i].file;
+    this.playerCardTd.appendChild(this.cardImg);
+    dealerCards.appendChild(this.playerCardTd);
+  }
+}
+
+Game.prototype.clearCards = function() {
+  dealerCards.innerHtml = '';
+  playerCards.innerHtml = '';
 }
 
 Game.prototype.checkBlackjack = function() {
