@@ -1,4 +1,87 @@
 
+body {
+  /*border: 4px solid red;*/
+}
+
+header, footer, aside, section {
+  padding: 20px;
+}
+
+header {
+  /*border: 4px solid blue;*/
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+header h2 {
+  font-size: 80px;
+  padding: 15px 0;
+}
+
+main {
+  /*border: 4px solid #e2da1d;*/
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+aside {
+  border: 2px dashed #913517;
+}
+
+section {
+  /*border: 2px dashed #28065b;*/
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+footer {
+  /*border: 4px solid #8e641e;*/
+  margin-bottom: 30px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+table {
+  border: 4px solid #ccc;
+  border-radius: 15px;
+  border-collapse: separate;
+  background: rgba(255,255,255,0.2);
+}
+
+tr {
+
+}
+
+td {
+  /*border: 1px dashed red;*/
+  padding: 15px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
 
 /* FlexBox
 .flex-container {
@@ -24,6 +107,7 @@
 #nameForm input {
   margin-top: 5px;
 }
+
 video#bgvid {
     position: fixed;
     top: 50%;
@@ -38,4 +122,19 @@ video#bgvid {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
+  }
+
+.blackjackbg {
+  background: url('table-bg.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+.neonheader {
+  font-family: Monoton;
+  /*font-size: 8em;*/
+  text-align: center;
 }
