@@ -50,8 +50,10 @@ Deck.prototype.reset = function() {
   this.shuffle();
 }
 
-function Hand() {
+function Hand(hidden) {
   this.cardObjects = []; //store copies of the Card objects here for easier reference.
+  //counts as false unless argument is included
+  this.hidden = hidden || false;
 }
 //Hand methods here
 
@@ -75,6 +77,16 @@ Hand.prototype.hasAce = function() {
     }
   }
   return false;
+}
+
+//gets the value of the dealer's face-up card
+Hand.prototype.getInitialDValue() {
+  var value = this.cardObjects[1].value;
+  //ace
+  if(value === 1) {
+    value += 10;
+  }
+  return value;
 }
 
 //gets the value of the hand. Takes aces into account.
@@ -126,7 +138,7 @@ Game.prototype.startRound = function() {
   dealerHand.draw();
   playerHand.draw();
 
-  console.log(dealerHand.getValue());
+  console.log(dealerHand.getInitialDValue());
   console.log(playerHand.getValue());
 
   // setTimeout (#Deal to player#, 500);
@@ -166,6 +178,7 @@ Game.prototype.clearCards = function() {
 Game.prototype.checkBlackjack = function() {
   if(dealerHand.getValue() === 21) {
     game.endRound('dealerBlackjack');
+    //show dealer card
     return;
   }
   else if (playerHand.getValue() === 21) {
@@ -185,6 +198,7 @@ Game.prototype.playerHit = function() {
 
 Game.prototype.playerStand = function() {
   setTimeout(game.dealerTurn, 500);
+  //show dealer card
 }
 
 //recursively plays the dealer's turn.
@@ -251,6 +265,7 @@ Game.prototype.endRound = function(outcome) {
   else {
     alert('INVALID OUTCOME!')
   }
+  //hide dealer card
   this.currentBet = 0;
   this.roundInProgress = false;
   deck.reset();
