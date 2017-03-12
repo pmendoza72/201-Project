@@ -1,3 +1,4 @@
+@import url("reset.css");
 
 body {
   /*border: 4px solid red;*/
@@ -17,7 +18,7 @@ header {
 
 header h2 {
   font-size: 80px;
-  padding: 15px 0;
+  /*padding: 15px 0;*/
 }
 
 main {
@@ -56,6 +57,8 @@ table {
   border-radius: 15px;
   border-collapse: separate;
   background: rgba(255,255,255,0.2);
+  min-width: 408px;
+  min-height: 594px;
 }
 
 tr {
@@ -64,7 +67,10 @@ tr {
 
 td {
   /*border: 1px dashed red;*/
-  padding: 15px;
+}
+
+td img {
+  transform: scale(0.7, 0.7);
 }
 
 h1 {
@@ -125,7 +131,7 @@ video#bgvid {
   }
 
 .blackjackbg {
-  background: url('table-bg.jpg');
+  background: url('../img/table-bg.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
