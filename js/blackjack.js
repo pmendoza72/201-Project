@@ -124,6 +124,9 @@ Game.prototype.getCardPath = function(type, suit) {
 
 Game.prototype.startRound = function() {
   this.roundInProgress = true;
+  newGameButton.disabled = true;
+  hitButton.disabled = false;
+  standButton.disabled = false;
 
   if (this.playerMoney < 10) {
     this.currentBet = this.playerMoney;
@@ -271,6 +274,9 @@ Game.prototype.endRound = function(outcome) {
   deck.reset();
   dealerHand.empty();
   playerHand.empty();
+  newGameButton.disabled = false;
+  hitButton.disabled = true;
+  standButton.disabled = true;
 }
 
 //Define types of cards
@@ -316,6 +322,9 @@ var newGameButton = document.getElementById('newGame');
 hitButton.addEventListener('click', game.playerHit);
 standButton.addEventListener('click', game.playerStand);
 newGameButton.addEventListener('click', newGame);
+
+hitButton.disabled = true;
+standButton.disabled = true;
 
 function newGame() {
   game.clearCards();
