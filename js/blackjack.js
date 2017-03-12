@@ -80,7 +80,7 @@ Hand.prototype.hasAce = function() {
 }
 
 //gets the value of the dealer's face-up card
-Hand.prototype.getInitialDValue() {
+Hand.prototype.getInitialDValue = function() {
   var value = this.cardObjects[1].value;
   //ace
   if(value === 1) {
