@@ -152,6 +152,9 @@ Game.prototype.startRound = function() {
   setTimeout(game.checkBlackjack, 3000);
   game.clearCards();
   game.renderCards();
+  if (dealerHand.cardObjects.length < 3) {
+    hideDealerCard();
+  }
 }
 
 Game.prototype.renderCards = function() {
@@ -209,6 +212,9 @@ Game.prototype.dealerTurn = function() {
   if(dealerHand.getValue() >= 17) {
     //dealer stands
     setTimeout(game.finalScore, 750);
+    if (dealerHand.cardObjects.length < 3) {
+      hideDealerCard();
+    }
   }
   else {
     //dealer hits
@@ -268,7 +274,7 @@ Game.prototype.endRound = function(outcome) {
   else {
     alert('INVALID OUTCOME!')
   }
-  //hide dealer card
+  showDealerCard();
   this.currentBet = 0;
   this.roundInProgress = false;
   deck.reset();
@@ -332,4 +338,12 @@ function newGame() {
   dealerHand.empty();
   playerHand.empty();
   game.startRound();
+};
+
+function hideDealerCard() {
+  console.log('dealer has less than 3 cards');
+  document.getElementById('dealerCard2').children[0].src = "cards/code_fellows_card.png";
+};
+function showDealerCard() {
+  document.getElementById('dealerCard2').children[0].src = dealerHand.cardObjects[1].file;
 };
