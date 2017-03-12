@@ -300,7 +300,6 @@ var newGameButton = document.getElementById('newGame');
 
 hitButton.addEventListener('click', game.playerHit);
 standButton.addEventListener('click', game.playerStand);
-newGameButton.addEventListener('click', game.clearCards);
 newGameButton.addEventListener('click', newGame);
 
 function newGame() {
