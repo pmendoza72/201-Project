@@ -293,3 +293,19 @@ for (var i = 0; i < suits.length; i++) {
 
 deck.reset();
 //ready to start the game
+
+var hitButton = document.getElementById('hit');
+var standButton = document.getElementById('stand');
+var newGameButton = document.getElementById('newGame');
+
+hitButton.addEventListener('click', game.playerHit);
+standButton.addEventListener('click', game.playerStand);
+newGameButton.addEventListener('click', newGame);
+
+function newGame() {
+  game.clearCards();
+  deck.reset();
+  dealerHand.empty();
+  playerHand.empty();
+  game.startRound();
+};
