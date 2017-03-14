@@ -283,7 +283,7 @@ Game.prototype.endRound = function(outcome) {
     this.playerMoney += (this.currentBet * 2);
 
     msg.textContent = 'You win.  Dealer went over 21.';
-    
+
     if(playerHand.getValue() <= 10 && game.standSpecial) {
       game.oreNoStando();
     }
@@ -337,7 +337,7 @@ var cardtypes = [
   ['king', 10]
 ];
 
-var game = new Game();
+var game = new Game('name', 100);
 var playerHand = new Hand();
 var dealerHand = new Hand();
 var deck = new Deck();
