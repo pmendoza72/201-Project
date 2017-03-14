@@ -3,19 +3,43 @@
 <head>
   <meta charset="utf-8">
   <title>Final Project | BlackJack</title>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Monoton&effect=neon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="blackjackbg">
-  <header><h2 class="font-effect-neon neonheader">Code Fellows BlackJack</h2></header>
+
+  <!-- The overlay -->
+  <div id="nav" class="overlay">
+    <!-- Closes the overlay navigation -->
+    <a href="#" class="closeBtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <a href="#">New Player</a>
+      <a href="#">BlackJack</a>
+      <a href="#">Hire Us</a>
+    </div>
+
+  </div>
+
+  <header>
+    <div><img src="img/cf-blackjack-logo.png" alt="logo"></div>
+    <!-- Opens the overlay navigation -->
+    <div><a href="#" class="openBtn" onclick="openNav()"><span class="fa fa-bars fa-3" aria-hidden="true"></span></a></div>
+  </header>
   <main>
     <section>
-      <table class="cardtable">
-        <tr id="dealerCards">
-        </tr>
-        <tr id="playerCards">
-        </tr>
+      <table class="cardtable" id="dealer">
+        <tr id="dealerScore"></tr>
+        <tr id="dealerCards"></tr>
       </table>
+      <table class="cardtable" id="player">
+        <tr id="playerScore"></tr>
+        <tr id="playerCards"></tr>
+      </table>
+    </section>
+    <section>
+      <div id="msg"></div>
     </section>
     <section>
       <button id="hit">HIT</button>
