@@ -81,7 +81,7 @@ Hand.prototype.hasAce = function() {
 
 //gets the value of the dealer's face-up card
 Hand.prototype.getInitialDValue = function() {
-  var value = this.cardObjects[1].value;
+  var value = this.cardObjects[0].value;
   //ace
   if(value === 1) {
     value += 10;
@@ -112,6 +112,7 @@ function Game(playerName, startMoney) {
   this.playerMoney = startMoney;
   this.currentBet = 0;
   this.roundInProgress = false;
+  this.hideDealerCard = true;
 }
 //Game methods here
 Game.prototype.getName = function() {
@@ -123,6 +124,7 @@ Game.prototype.getCardPath = function(type, suit) {
 }
 
 Game.prototype.startRound = function() {
+  hideDealerCard();
   this.roundInProgress = true;
   newGameButton.disabled = true;
   hitButton.disabled = false;
@@ -149,12 +151,9 @@ Game.prototype.startRound = function() {
   // setTimeout (#Deal to player#, 1500);
   // setTimeout (#Deal to dealer#, 2000);
 
-  setTimeout(game.checkBlackjack, 3000);
+  setTimeout(game.checkBlackjack, 1000);
   game.clearCards();
   game.renderCards();
-  if (dealerHand.cardObjects.length < 3) {
-    hideDealerCard();
-  }
 }
 
 Game.prototype.renderCards = function() {
@@ -174,6 +173,16 @@ Game.prototype.renderCards = function() {
     this.playerCardTd.appendChild(this.playerCardImg);
     playerCards.appendChild(this.playerCardTd);
   }
+
+  if(dealerHand.cardObjects.length < 2) {
+    //don't worry about hiding or showing the dealer card that isn't there.
+  }
+  else if(game.hideDealerCard) {
+    document.getElementById('dealerCard2').children[0].src = "cards/code_fellows_card.png";
+  }
+  else {
+    document.getElementById('dealerCard2').children[0].src = dealerHand.cardObjects[1].file;
+  }
 }
 
 Game.prototype.clearCards = function() {
@@ -184,7 +193,7 @@ Game.prototype.clearCards = function() {
 Game.prototype.checkBlackjack = function() {
   if(dealerHand.getValue() === 21) {
     game.endRound('dealerBlackjack');
-    //show dealer card
+    showDealerCard();
     return;
   }
   else if (playerHand.getValue() === 21) {
@@ -204,17 +213,14 @@ Game.prototype.playerHit = function() {
 
 Game.prototype.playerStand = function() {
   setTimeout(game.dealerTurn, 500);
-  //show dealer card
 }
 
 //recursively plays the dealer's turn.
 Game.prototype.dealerTurn = function() {
+  showDealerCard();
   if(dealerHand.getValue() >= 17) {
     //dealer stands
     setTimeout(game.finalScore, 750);
-    if (dealerHand.cardObjects.length < 3) {
-      hideDealerCard();
-    }
   }
   else {
     //dealer hits
@@ -247,6 +253,7 @@ Game.prototype.endRound = function(outcome) {
   //Outcomes
 
   if (outcome === 'dealerBlackjack') {
+    showDealerCard();
     alert('You lose.  Dealer has Blackjack.');
   }
   else if (outcome === 'playerBlackjack') {
@@ -274,7 +281,6 @@ Game.prototype.endRound = function(outcome) {
   else {
     alert('INVALID OUTCOME!')
   }
-  showDealerCard();
   this.currentBet = 0;
   this.roundInProgress = false;
   deck.reset();
@@ -341,9 +347,12 @@ function newGame() {
 };
 
 function hideDealerCard() {
-  console.log('dealer has less than 3 cards');
-  document.getElementById('dealerCard2').children[0].src = "cards/code_fellows_card.png";
+  game.hideDealerCard = true;
+  game.clearCards();
+  game.renderCards();
 };
 function showDealerCard() {
-  document.getElementById('dealerCard2').children[0].src = dealerHand.cardObjects[1].file;
+  game.hideDealerCard = false;
+  game.clearCards();
+  game.renderCards();
 };
