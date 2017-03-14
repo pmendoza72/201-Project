@@ -127,11 +127,9 @@ Game.prototype.startRound = function() {
   dealerHand.empty();
   playerHand.empty();
   hideDealerCard();
-  
+
   this.roundInProgress = true;
   newGameButton.disabled = true;
-  hitButton.disabled = false;
-  standButton.disabled = false;
 
   if (this.playerMoney < 10) {
     this.currentBet = this.playerMoney;
@@ -205,6 +203,8 @@ Game.prototype.checkBlackjack = function() {
   }
 
   //if no blackjack, enable the player turn controls.
+  hitButton.disabled = false;
+  standButton.disabled = false;
 }
 
 Game.prototype.playerHit = function() {
@@ -269,6 +269,9 @@ Game.prototype.endRound = function(outcome) {
   else if (outcome === 'dealerBust') {
     this.playerMoney += (this.currentBet * 2);
     alert('You win.  Dealer went over 21.');
+    if(playerHand.getValue() <= 10) {
+      game.oreNoStando();
+    }
   }
   else if (outcome === 'pointsLose') {
     alert('You lose.  Dealer scored higher than you.');
@@ -291,6 +294,11 @@ Game.prototype.endRound = function(outcome) {
   newGameButton.disabled = false;
   hitButton.disabled = true;
   standButton.disabled = true;
+}
+
+Game.prototype.oreNoStando = function() {
+  game.clearCards();
+  playerCards.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/bnifMws_pCI?autoplay=1" frameborder="0" allowfullscreen></iframe>';
 }
 
 //Define types of cards
