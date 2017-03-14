@@ -124,7 +124,10 @@ Game.prototype.getCardPath = function(type, suit) {
 }
 
 Game.prototype.startRound = function() {
+  dealerHand.empty();
+  playerHand.empty();
   hideDealerCard();
+  
   this.roundInProgress = true;
   newGameButton.disabled = true;
   hitButton.disabled = false;
@@ -284,8 +287,7 @@ Game.prototype.endRound = function(outcome) {
   this.currentBet = 0;
   this.roundInProgress = false;
   deck.reset();
-  dealerHand.empty();
-  playerHand.empty();
+
   newGameButton.disabled = false;
   hitButton.disabled = true;
   standButton.disabled = true;
