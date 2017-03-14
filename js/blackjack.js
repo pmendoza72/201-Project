@@ -10,6 +10,10 @@ var playerCards = document.getElementById('playerCards');
 
 var msg = document.getElementById('msg');
 
+var money = document.getElementById('money');
+// var bet = document.getElementById('bet').value;
+var bet = 10;
+
 //CONSTRUCTORS
 function Card(file, value) {
   this.file = file;
@@ -143,12 +147,12 @@ Game.prototype.startRound = function() {
   this.roundInProgress = true;
   newGameButton.disabled = true;
 
-  if (this.playerMoney < 10) {
+  if (this.playerMoney < bet) {
     this.currentBet = this.playerMoney;
     this.playerMoney = 0;
   }
   else {
-    this.currentBet = 10;
+    this.currentBet = bet;
     this.playerMoney -= this.currentBet;
   }
   dealerHand.draw();
@@ -167,6 +171,7 @@ Game.prototype.startRound = function() {
   setTimeout(game.checkBlackjack, 1000);
   game.clearCards();
   game.renderCards();
+  printMoney();
 }
 
 Game.prototype.renderCards = function() {
@@ -303,6 +308,8 @@ Game.prototype.endRound = function(outcome) {
   else {
     msg.textContent = 'INVALID OUTCOME!';
   }
+  printMoney();
+
   this.currentBet = 0;
   this.roundInProgress = false;
   deck.reset();
@@ -384,6 +391,8 @@ function showDealerCard() {
   game.renderCards();
 };
 
+// Functions for printing to DOM
+
 function printScores() {
   if (game.hideDealerCard === true) {
     dealerScoreTr.textContent = 'Score: ' + dealerHand.getInitialDValue();
@@ -393,6 +402,13 @@ function printScores() {
   }
   playerScoreTr.textContent = 'Score: ' + playerHand.getValue();
 }
+
+function printMoney() {
+  money.textContent = 'You have: $' + game.playerMoney;
+}
+
+printMoney();
+// money.textContent = 'You have: $100';
 
 // NAVIGATION HAMBURGER MENU
 
