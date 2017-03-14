@@ -333,6 +333,14 @@ Game.prototype.endRound = function(outcome) {
   if (game.playerMoney < bet.value) {
     game.bet.value = game.playerMoney;
   }
+
+  if (game.playerMoney === 0) {
+    // alert('You\'re out of money.  Refresh the page to start over.')
+    this.outOfMoney = document.createElement('span');
+    this.outOfMoney.textContent = '  You\'re out of money.  Refresh the page to start over.';
+    msg.appendChild(this.outOfMoney);
+  }
+
 }
 
 Game.prototype.oreNoStando = function() {
