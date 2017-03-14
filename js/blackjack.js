@@ -113,7 +113,7 @@ function Game(playerName, startMoney) {
   this.currentBet = 0;
   this.roundInProgress = false;
   this.hideDealerCard = true;
-  game.standSpecial = true;
+  this.standSpecial = true;
 }
 //Game methods here
 Game.prototype.getName = function() {
