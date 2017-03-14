@@ -151,6 +151,7 @@ Game.prototype.startRound = function() {
   if (this.playerMoney < bet.value) {
     this.currentBet = this.playerMoney;
     this.playerMoney = 0;
+    this.bet.value = this.currentBet;
   }
   else {
     this.currentBet = this.bet.value;
@@ -329,6 +330,9 @@ Game.prototype.endRound = function(outcome) {
   standButton.disabled = true;
   this.bet.disabled = false;
   console.log('Player now has $' + game.playerMoney + '.');
+  if (game.playerMoney < bet.value) {
+    game.bet.value = game.playerMoney;
+  }
 }
 
 Game.prototype.oreNoStando = function() {
