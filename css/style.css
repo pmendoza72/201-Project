@@ -295,3 +295,25 @@ button {
 .flexrow {
   flex-direction: row;
 }
+
+td.score {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px 0 0 10px;
+}
+
+.info {
+  height:30px;
+  /*border: 1px solid black;*/
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#betForm input {
+  width: 40px;
+}
+
+#msg {
+  padding-bottom: 10px;
+  color:red;
+}
