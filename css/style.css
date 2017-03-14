@@ -17,7 +17,7 @@ header {
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  height: 30px;
+  height: 18px;
   background: rgba(0, 0, 0, 0.6);
   margin-bottom: 20px;
   position: fixed;
@@ -48,7 +48,7 @@ main {
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 40px;
 }
 
 aside {
@@ -58,12 +58,13 @@ aside {
 section {
   /*border: 2px dashed #28065b;*/
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding-top: 40px;
+  padding: 0;
+  /*padding-top: 40px;*/
 }
 
 section div.left, section div.right {
@@ -94,9 +95,10 @@ table {
   border-collapse: separate;
   background: rgba(255,255,255,0.2);
   min-width: 408px;
-  min-height: 298px;
+  min-height: 310px;
   box-shadow: 10px 10px 5px #2b2a2a;
-  margin: 20px 0;
+  /*margin: 20px 0;*/
+  transform: scale(0.8,0.8);
 }
 
 tr {
@@ -288,4 +290,8 @@ button {
         top: 15px;
         right: 35px;
     }
+}
+
+.flexrow {
+  flex-direction: row;
 }
