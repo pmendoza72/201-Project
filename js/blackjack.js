@@ -1,7 +1,14 @@
 'use strict'
 
+// Define some variables for DOM elements
+
+var dealerScoreTr = document.getElementById('dealerScore');
 var dealerCards = document.getElementById('dealerCards');
+
+var playerScoreTr = document.getElementById('playerScore');
 var playerCards = document.getElementById('playerCards');
+
+var msg = document.getElementById('msg');
 
 //CONSTRUCTORS
 function Card(file, value) {
@@ -81,7 +88,11 @@ Hand.prototype.hasAce = function() {
 
 //gets the value of the dealer's face-up card
 Hand.prototype.getInitialDValue = function() {
-  var value = this.cardObjects[0].value;
+  var value = 0;
+  if (this.cardObjects.length === 0) {
+    return 0;
+  }
+  value += this.cardObjects[0].value;
   //ace
   if(value === 1) {
     value += 10;
@@ -127,7 +138,7 @@ Game.prototype.startRound = function() {
   dealerHand.empty();
   playerHand.empty();
   hideDealerCard();
-  
+
   this.roundInProgress = true;
   newGameButton.disabled = true;
   hitButton.disabled = false;
@@ -186,6 +197,7 @@ Game.prototype.renderCards = function() {
   else {
     document.getElementById('dealerCard2').children[0].src = dealerHand.cardObjects[1].file;
   }
+  printScores();
 }
 
 Game.prototype.clearCards = function() {
@@ -257,32 +269,32 @@ Game.prototype.endRound = function(outcome) {
 
   if (outcome === 'dealerBlackjack') {
     showDealerCard();
-    alert('You lose.  Dealer has Blackjack.');
+    msg.textContent = 'You lose.  Dealer has Blackjack.';
   }
   else if (outcome === 'playerBlackjack') {
     this.playerMoney += (this.currentBet * 2);
-    alert('You win.  You have Blackjack');
+    msg.textContent = 'You win.  You have Blackjack';
   }
   else if (outcome === 'playerBust') {
-    alert('You lose.  You went over 21.');
+    msg.textContent = 'You lose.  You went over 21.';
   }
   else if (outcome === 'dealerBust') {
     this.playerMoney += (this.currentBet * 2);
-    alert('You win.  Dealer went over 21.');
+    msg.textContent = 'You win.  Dealer went over 21.';
   }
   else if (outcome === 'pointsLose') {
-    alert('You lose.  Dealer scored higher than you.');
+    msg.textContent = 'You lose.  Dealer scored higher than you.';
   }
   else if (outcome === 'pointsWin') {
     this.playerMoney += (this.currentBet * 2);
-    alert('You win.  You scored higher than dealer.');
+    msg.textContent = 'You win.  You scored higher than dealer.';
   }
   else if (outcome === 'push') {
     this.playerMoney += this.currentBet;
-    alert('You\'ve tied.');
+    msg.textContent = 'You\'ve tied.';
   }
   else {
-    alert('INVALID OUTCOME!')
+    msg.textContent = 'INVALID OUTCOME!';
   }
   this.currentBet = 0;
   this.roundInProgress = false;
@@ -341,6 +353,7 @@ hitButton.disabled = true;
 standButton.disabled = true;
 
 function newGame() {
+  msg.textContent = '';
   game.clearCards();
   deck.reset();
   dealerHand.empty();
@@ -358,3 +371,24 @@ function showDealerCard() {
   game.clearCards();
   game.renderCards();
 };
+
+function printScores() {
+  if (game.hideDealerCard === true) {
+    dealerScoreTr.textContent = 'Score: ' + dealerHand.getInitialDValue();
+  }
+  else {
+    dealerScoreTr.textContent = 'Score: ' + dealerHand.getValue();
+  }
+  playerScoreTr.textContent = 'Score: ' + playerHand.getValue();
+}
+
+// NAVIGATION HAMBURGER MENU
+
+function openNav() {
+   document.getElementById("nav").style.height = "100%";
+}
+
+/* Close Menu */
+function closeNav() {
+   document.getElementById("nav").style.height = "0%";
+}
