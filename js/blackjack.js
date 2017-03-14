@@ -113,6 +113,7 @@ function Game(playerName, startMoney) {
   this.currentBet = 0;
   this.roundInProgress = false;
   this.hideDealerCard = true;
+  game.standSpecial = true;
 }
 //Game methods here
 Game.prototype.getName = function() {
@@ -269,7 +270,7 @@ Game.prototype.endRound = function(outcome) {
   else if (outcome === 'dealerBust') {
     this.playerMoney += (this.currentBet * 2);
     alert('You win.  Dealer went over 21.');
-    if(playerHand.getValue() <= 10) {
+    if(playerHand.getValue() <= 10 && game.standSpecial) {
       game.oreNoStando();
     }
   }
