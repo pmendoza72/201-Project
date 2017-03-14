@@ -11,8 +11,7 @@ var playerCards = document.getElementById('playerCards');
 var msg = document.getElementById('msg');
 
 var money = document.getElementById('money');
-// var bet = document.getElementById('bet').value;
-var bet = 10;
+
 
 //CONSTRUCTORS
 function Card(file, value) {
@@ -146,13 +145,15 @@ Game.prototype.startRound = function() {
 
   this.roundInProgress = true;
   newGameButton.disabled = true;
+  this.bet = document.getElementById('bet');
+  this.bet.disabled = true;
 
-  if (this.playerMoney < bet) {
+  if (this.playerMoney < bet.value) {
     this.currentBet = this.playerMoney;
     this.playerMoney = 0;
   }
   else {
-    this.currentBet = bet;
+    this.currentBet = this.bet.value;
     this.playerMoney -= this.currentBet;
   }
   dealerHand.draw();
@@ -317,6 +318,7 @@ Game.prototype.endRound = function(outcome) {
   newGameButton.disabled = false;
   hitButton.disabled = true;
   standButton.disabled = true;
+  this.bet.disabled = false;
 }
 
 Game.prototype.oreNoStando = function() {
