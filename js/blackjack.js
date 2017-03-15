@@ -10,6 +10,9 @@ var playerCards = document.getElementById('playerCards');
 
 var msg = document.getElementById('msg');
 
+var money = document.getElementById('money');
+
+
 //CONSTRUCTORS
 function Card(file, value) {
   this.file = file;
@@ -70,7 +73,7 @@ Hand.prototype.empty = function() {
 
 Hand.prototype.draw = function() {
   var card = deck.drawCard()
-  console.log('drew card ' + card.file + ' ' + card.value);
+  // console.log('drew card ' + card.file + ' ' + card.value);
   this.cardObjects.push(card);
   game.clearCards();
   game.renderCards();
@@ -142,13 +145,16 @@ Game.prototype.startRound = function() {
 
   this.roundInProgress = true;
   newGameButton.disabled = true;
+  this.bet = document.getElementById('bet');
+  this.bet.disabled = true;
 
-  if (this.playerMoney < 10) {
+  if (this.playerMoney < bet.value) {
     this.currentBet = this.playerMoney;
     this.playerMoney = 0;
+    this.bet.value = this.currentBet;
   }
   else {
-    this.currentBet = 10;
+    this.currentBet = this.bet.value;
     this.playerMoney -= this.currentBet;
   }
   dealerHand.draw();
@@ -156,8 +162,8 @@ Game.prototype.startRound = function() {
   dealerHand.draw();
   playerHand.draw();
 
-  console.log(dealerHand.getInitialDValue());
-  console.log(playerHand.getValue());
+  // console.log(dealerHand.getInitialDValue());
+  // console.log(playerHand.getValue());
 
   // setTimeout (#Deal to player#, 500);
   // setTimeout (#Deal to dealer#, 1000);
@@ -167,6 +173,8 @@ Game.prototype.startRound = function() {
   setTimeout(game.checkBlackjack, 1000);
   game.clearCards();
   game.renderCards();
+  printMoney();
+  console.log('Player has $' + game.playerMoney + ' at the start of the round.');
 }
 
 Game.prototype.renderCards = function() {
@@ -271,18 +279,22 @@ Game.prototype.endRound = function(outcome) {
   if (outcome === 'dealerBlackjack') {
     showDealerCard();
     msg.textContent = 'You lose.  Dealer has Blackjack.';
+    console.log('You lose.  Dealer has Blackjack.');
   }
   else if (outcome === 'playerBlackjack') {
     this.playerMoney += (this.currentBet * 2);
     msg.textContent = 'You win.  You have Blackjack';
+    console.log('You win.  You have Blackjack');
   }
   else if (outcome === 'playerBust') {
     msg.textContent = 'You lose.  You went over 21.';
+    console.log('You lose.  You went over 21.');
   }
   else if (outcome === 'dealerBust') {
     this.playerMoney += (this.currentBet * 2);
 
     msg.textContent = 'You win.  Dealer went over 21.';
+    console.log('You win.  Dealer went over 21.');
 
     if(playerHand.getValue() <= 10 && game.standSpecial) {
       game.oreNoStando();
@@ -291,18 +303,24 @@ Game.prototype.endRound = function(outcome) {
   }
   else if (outcome === 'pointsLose') {
     msg.textContent = 'You lose.  Dealer scored higher than you.';
+    console.log('You lose.  Dealer scored higher than you.');
   }
   else if (outcome === 'pointsWin') {
     this.playerMoney += (this.currentBet * 2);
     msg.textContent = 'You win.  You scored higher than dealer.';
+    console.log('You win.  You scored higher than dealer.');
   }
   else if (outcome === 'push') {
-    this.playerMoney += this.currentBet;
+    this.playerMoney += (this.currentBet * 1);
     msg.textContent = 'You\'ve tied.';
+    console.log('You\'ve tied.');
   }
   else {
     msg.textContent = 'INVALID OUTCOME!';
+    console.log('INVALID OUTCOME!');
   }
+  printMoney();
+
   this.currentBet = 0;
   this.roundInProgress = false;
   deck.reset();
@@ -310,6 +328,20 @@ Game.prototype.endRound = function(outcome) {
   newGameButton.disabled = false;
   hitButton.disabled = true;
   standButton.disabled = true;
+  this.bet.disabled = false;
+  console.log('Player now has $' + game.playerMoney + '.');
+  if (game.playerMoney < bet.value) {
+    game.bet.value = game.playerMoney;
+  }
+
+  if (game.playerMoney === 0) {
+    // alert('You\'re out of money.  Refresh the page to start over.')
+    this.outOfMoney = document.createElement('span');
+    this.outOfMoney.textContent = '  You\'re out of money.  Refresh the page to start over.';
+    msg.appendChild(this.outOfMoney);
+    newGameButton.disabled = true;
+  }
+
 }
 
 Game.prototype.oreNoStando = function() {
@@ -384,6 +416,8 @@ function showDealerCard() {
   game.renderCards();
 };
 
+// Functions for printing to DOM
+
 function printScores() {
   if (game.hideDealerCard === true) {
     dealerScoreTr.textContent = 'Score: ' + dealerHand.getInitialDValue();
@@ -393,6 +427,13 @@ function printScores() {
   }
   playerScoreTr.textContent = 'Score: ' + playerHand.getValue();
 }
+
+function printMoney() {
+  money.textContent = 'You have: $' + game.playerMoney;
+}
+
+printMoney();
+// money.textContent = 'You have: $100';
 
 // NAVIGATION HAMBURGER MENU
 

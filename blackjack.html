@@ -31,18 +31,25 @@
     <section>
       <div id="dealerScore" class="styleScore"></div>
       <table class="cardtable" id="dealer">
-        <!-- <tr id="dealerScore" class="styleScore"></tr> -->
+        <tr><td id="dealerScore" class="score"></td></tr>
         <tr id="dealerCards"></tr>
       </table>
       <table class="cardtable" id="player">
-        <tr id="playerScore"></tr>
+        <tr><td id="playerScore" class="score"></td></tr>
         <tr id="playerCards"></tr>
       </table>
     </section>
     <section>
-      <div id="bet"></div>
-      <div id="money"></div>
-      <div id="msg"></div>
+      <div id="betForm" class="info">
+        <form>
+          <fieldset>
+            <label for="bet">Bet: </label>
+            <input id="bet" type="number" name="bet" value="10">
+          </fieldset>
+        </form>
+      </div>
+      <div id="money" class="info"></div>
+      <div id="msg" class="info"></div>
     </section>
     <section class="flexrow">
       <button id="hit">HIT</button>

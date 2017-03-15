@@ -22,6 +22,7 @@ header {
   margin-bottom: 20px;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 header div {
@@ -214,6 +215,11 @@ button:hover {
   color: #fff;
 }
 
+button:disabled {
+  background-color: #200;
+  color: #fff;
+}
+
 @media (max-width: 760px) {
 
 header div {
@@ -299,4 +305,26 @@ button {
 
 .flexrow {
   flex-direction: row;
+}
+
+td.score {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px 0 0 10px;
+}
+
+.info {
+  height:30px;
+  /*border: 1px solid black;*/
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#betForm input {
+  width: 40px;
+}
+
+#msg {
+  padding-bottom: 10px;
+  color:red;
 }
