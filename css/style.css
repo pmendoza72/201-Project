@@ -212,12 +212,12 @@ button {
 }
 
 button:hover {
-  background-color: #000;
+  background-color: #005;
   color: #fff;
 }
 
 button:disabled {
-  background-color: #200;
+  background-color: #500;
   color: #fff;
 }
 
@@ -328,4 +328,5 @@ td.score {
 #msg {
   padding-bottom: 10px;
   color:red;
+  text-shadow: 2px 2px 8px #000;
 }
