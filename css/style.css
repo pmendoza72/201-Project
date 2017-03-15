@@ -129,18 +129,65 @@ h4 {
 */
 
 #nameForm {
-  width: 200px;
+  /*width: 200px;*/
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  margin-top: 200px;
 }
+
 #nameForm fieldset {
-  border:1px dashed black;
+  /*border:3px solid #ccc;*/
   margin: 0;
-  padding: 10px;
+  padding: 70px 120px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px 10px;
 }
+
 #nameForm input {
-  margin-top: 5px;
+  margin: 10px 0;
+}
+
+fieldset img {
+  padding-right: 15px;
+  padding-bottom: 20px;
+  transform: scale(1.1);
+}
+
+.namefield {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+input[type="submit"] {
+  padding: 5px;
+  /*border: 2px solid #fff;*/
+  border-radius: 5px;
+  width: 220px;
+  /*text-shadow: -2px 2px #dd4135;*/
+  background-color: #d03327;
+  color: #fff;
+  height: 40px;
+  font-weight: bold;
+  font-family: 'Lato';
+  font-size: 20px;
+  outline: none;
+}
+
+input[type="submit"]:hover {
+  background-color: #ba2418;
+  box-shadow: 0 4px #000;
+}
+
+input[type="submit"]:active {
+  background-color: #ba2418;
+  box-shadow: 0 5px ##8b160d;
+  transform: translateY(2px);
+}
+
+label {
+
 }
 
 video#bgvid {
