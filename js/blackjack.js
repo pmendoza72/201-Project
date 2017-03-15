@@ -89,6 +89,35 @@ Hand.prototype.hasAce = function() {
   return false;
 }
 
+//returns whether the hand has a soft value. i.e. is counting an ace as an 11.
+Hand.prototype.isSoft = function() {
+  if(this.hasAce() === false) {
+    return false;
+  }
+  var total = 0;
+  for(var i = 0; i < this.cardObjects.length; ++i) {
+    total += this.cardObjects[i].value;
+  }
+  if(this.value <= 11) {
+    return true;
+  }
+
+  return false;
+}
+
+Hand.prototype.hitOnSoft17 = function() {
+  if(game.hitOnSoft17 === false) {
+    return false;
+  }
+
+  if(this.isSoft() && (this.getValue() === 17)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 //gets the value of the dealer's face-up card
 Hand.prototype.getInitialDValue = function() {
   var value = 0;
@@ -128,6 +157,7 @@ function Game(playerName, startMoney) {
   this.roundInProgress = false;
   this.hideDealerCard = true;
   this.standSpecial = true;
+  this.hitOnSoft17 = true;
 }
 //Game methods here
 Game.prototype.getName = function() {
@@ -154,7 +184,7 @@ Game.prototype.startRound = function() {
     this.bet.value = this.currentBet;
   }
   else {
-    this.currentBet = this.bet.value;
+    this.currentBet = parseInt(this.bet.value);
     this.playerMoney -= this.currentBet;
   }
   dealerHand.draw();
@@ -226,27 +256,51 @@ Game.prototype.checkBlackjack = function() {
   //if no blackjack, enable the player turn controls.
   hitButton.disabled = false;
   standButton.disabled = false;
+  doubleButton.disabled = false;
 }
 
 Game.prototype.playerHit = function() {
+  doubleButton.disabled = true;
   playerHand.draw();
   if(playerHand.getValue() > 21) {
     game.endRound('playerBust');
   }
+  else if(playerHand.getValue() === 21) {
+    hitButton.disabled = true;
+    standButton.disabled = true;
+    game.playerStand();
+  }
 }
 
 Game.prototype.playerStand = function() {
+  setTimeout(game.dealerTurn, 500);
+  hitButton.disabled = true;
+  standButton.disabled = true;
+  doubleButton.disabled = true;
+}
+
+Game.prototype.playerDouble = function() {
+  if(game.playerMoney < game.currentBet) {
+    msg.textContent = 'Not enough money to double down!';
+    return;
+  }
+  game.playerMoney -= game.currentBet;
+  game.currentBet *= 2;
+  printMoney();
+  playerHand.draw();
+  if(playerHand.getValue() > 21) {
+    game.endRound('playerBust');
+  }
+  hitButton.disabled = true;
+  standButton.disabled = true;
+  doubleButton.disabled = true;
   setTimeout(game.dealerTurn, 500);
 }
 
 //recursively plays the dealer's turn.
 Game.prototype.dealerTurn = function() {
   showDealerCard();
-  if(dealerHand.getValue() >= 17) {
-    //dealer stands
-    setTimeout(game.finalScore, 750);
-  }
-  else {
+  if( (dealerHand.getValue() < 17) || dealerHand.hitOnSoft17()) {
     //dealer hits
     dealerHand.draw();
     if(dealerHand.getValue() > 21) {
@@ -254,6 +308,10 @@ Game.prototype.dealerTurn = function() {
       return;
     }
     setTimeout(game.dealerTurn, 750);
+  }
+  else {
+    //dealer stands
+    setTimeout(game.finalScore, 750);
   }
 }
 
@@ -282,9 +340,9 @@ Game.prototype.endRound = function(outcome) {
     console.log('You lose.  Dealer has Blackjack.');
   }
   else if (outcome === 'playerBlackjack') {
-    this.playerMoney += (this.currentBet * 2);
-    msg.textContent = 'You win.  You have Blackjack';
-    console.log('You win.  You have Blackjack');
+    this.playerMoney += Math.floor(this.currentBet * 3/2);
+    msg.textContent = 'You win.  You have Blackjack! Payout 3 to 2.';
+    console.log('You win.  You have Blackjack! Payout 3 to 2.');
   }
   else if (outcome === 'playerBust') {
     msg.textContent = 'You lose.  You went over 21.';
@@ -387,14 +445,17 @@ deck.reset();
 
 var hitButton = document.getElementById('hit');
 var standButton = document.getElementById('stand');
+var doubleButton = document.getElementById('double');
 var newGameButton = document.getElementById('newGame');
 
 hitButton.addEventListener('click', game.playerHit);
 standButton.addEventListener('click', game.playerStand);
+doubleButton.addEventListener('click', game.playerDouble);
 newGameButton.addEventListener('click', newGame);
 
 hitButton.disabled = true;
 standButton.disabled = true;
+doubleButton.disabled = true;
 
 function newGame() {
   msg.textContent = '';
