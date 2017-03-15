@@ -484,12 +484,12 @@ function showDealerCard() {
 
 function printScores() {
   if (game.hideDealerCard === true) {
-    dealerScoreTr.textContent = 'Score: ' + dealerHand.getInitialDValue();
+    dealerScoreTr.textContent = 'Dealer Score: ' + dealerHand.getInitialDValue();
   }
   else {
-    dealerScoreTr.textContent = 'Score: ' + dealerHand.getValue();
+    dealerScoreTr.textContent = 'Dealer Score: ' + dealerHand.getValue();
   }
-  playerScoreTr.textContent = 'Score: ' + playerHand.getValue();
+  playerScoreTr.textContent = 'Player Score: ' + playerHand.getValue();
 }
 
 function printMoney() {
