@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-  /*border: 4px solid red;*/
 }
 
 header, footer, aside, section {
@@ -10,7 +9,6 @@ header, footer, aside, section {
 }
 
 header {
-  /*border: 4px solid blue;*/
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -38,11 +36,9 @@ header div {
 
 header h2 {
   font-size: 80px;
-  /*padding: 15px 0;*/
 }
 
 main {
-  /*border: 4px solid #e2da1d;*/
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -57,7 +53,6 @@ aside {
 }
 
 section {
-  /*border: 2px dashed #28065b;*/
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -65,28 +60,14 @@ section {
   align-content: center;
   align-items: center;
   padding: 0;
-  /*padding-top: 40px;*/
-}
-
-section div.left, section div.right {
-  border: 4px solid #ccc;
-  background: rgba(255, 255, 255, 0.5);
-  margin: 50px;
-  padding: 20px;
-  border-radius: 15px;
-  width: 200px;
-  height: 290px;
-  box-shadow: 13px 13px 13px;
 }
 
 
 footer {
-  /*border: 4px solid #8e641e;*/
   margin-bottom: 30px;
 }
 
 img {
-  /*width: 100%;*/
   height: auto;
 }
 
@@ -96,11 +77,10 @@ table {
   border-collapse: separate;
   background: rgba(255,255,255,0.2);
   min-width: 330px;
-  min-height: 239px;
+  min-height: 269px;
   box-shadow: 10px 10px 5px #2b2a2a;
-  border-spacing: 10px;
+  border-spacing: 10px 5px;
   margin: 20px 0;
-  /*transform: scale(0.8,0.8);*/
 }
 
 tr {
@@ -113,13 +93,12 @@ tr.styleScore {
 }
 
 td {
-  /*border: 1px dashed red;*/
 }
 
 td img {
-  /*transform: scale(0.7, 0.7);*/
   box-shadow: 13px 13px 13px;
   transition-duration: 2.5s;
+  border-radius: 5px;
 }
 
 h1 {
@@ -148,6 +127,7 @@ h4 {
     align-items: flex-start;
 }
 */
+
 #nameForm {
   width: 200px;
   margin-left: auto;
@@ -188,12 +168,6 @@ video#bgvid {
   background-color: #464646;
 }
 
-.neonheader {
-  font-family: Monoton;
-  /*font-size: 8em;*/
-  text-align: center;
-}
-
 button {
   border: 3px solid #ccc;
   border-radius: 50px;
@@ -208,7 +182,6 @@ button {
   font-family: 'Lato', sans-serif;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.8);
   outline:none;
-  /*box-shadow: 0 0 13px;*/
 }
 
 button:hover {
@@ -244,7 +217,7 @@ button {
     height: 0;
     width: 100%;
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
     background-color: rgb(0,0,0); /* Black fallback color */
