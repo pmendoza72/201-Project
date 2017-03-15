@@ -86,7 +86,7 @@ footer {
 }
 
 img {
-  width: 100%;
+  /*width: 100%;*/
   height: auto;
 }
 
@@ -95,11 +95,12 @@ table {
   border-radius: 15px;
   border-collapse: separate;
   background: rgba(255,255,255,0.2);
-  min-width: 408px;
-  min-height: 310px;
+  min-width: 330px;
+  min-height: 239px;
   box-shadow: 10px 10px 5px #2b2a2a;
-  /*margin: 20px 0;*/
-  transform: scale(0.8,0.8);
+  border-spacing: 10px;
+  margin: 20px 0;
+  /*transform: scale(0.8,0.8);*/
 }
 
 tr {
@@ -116,7 +117,7 @@ td {
 }
 
 td img {
-  transform: scale(0.7, 0.7);
+  /*transform: scale(0.7, 0.7);*/
   box-shadow: 13px 13px 13px;
   transition-duration: 2.5s;
 }
