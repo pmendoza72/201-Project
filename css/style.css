@@ -105,6 +105,11 @@ tr {
 
 }
 
+tr.styleScore {
+  color: #fff;
+  height: 80px;
+}
+
 td {
   /*border: 1px dashed red;*/
 }
