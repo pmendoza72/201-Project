@@ -339,6 +339,7 @@ Game.prototype.endRound = function(outcome) {
     this.outOfMoney = document.createElement('span');
     this.outOfMoney.textContent = '  You\'re out of money.  Refresh the page to start over.';
     msg.appendChild(this.outOfMoney);
+    newGameButton.disabled = true;
   }
 
 }

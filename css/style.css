@@ -22,6 +22,7 @@ header {
   margin-bottom: 20px;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 header div {
@@ -206,6 +207,11 @@ button {
 
 button:hover {
   background-color: #000;
+  color: #fff;
+}
+
+button:disabled {
+  background-color: #200;
   color: #fff;
 }
 
