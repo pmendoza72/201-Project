@@ -288,13 +288,16 @@ Game.prototype.playerDouble = function() {
   game.currentBet *= 2;
   printMoney();
   playerHand.draw();
-  if(playerHand.getValue() > 21) {
-    game.endRound('playerBust');
-  }
+
   hitButton.disabled = true;
   standButton.disabled = true;
   doubleButton.disabled = true;
-  setTimeout(game.dealerTurn, 500);
+  if(playerHand.getValue() > 21) {
+    game.endRound('playerBust');
+  }
+  else {
+    setTimeout(game.dealerTurn, 500);
+  }
 }
 
 //recursively plays the dealer's turn.
