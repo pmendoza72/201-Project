@@ -47,6 +47,7 @@
 * ~~LocalStorage~~
 * ~~EventListener for submit button~~
 * ~~Different js for this page - pretty simple for storage~~
+* Add about-us page
 
 ##BlackJack Page
 
@@ -64,7 +65,7 @@
 * ~~Game ends~~
 * ~~Results (Why you won or lost. $ total)~~
 * Option to restart
-* ~~ button appears~~
+* ~~button appears~~
 * ~~Controls hidden~~
 
 ###If no blackjack
