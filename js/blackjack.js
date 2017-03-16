@@ -178,7 +178,7 @@ Game.prototype.startRound = function() {
   this.bet = document.getElementById('bet');
   this.betForm = document.getElementById('betForm');
   this.bet.disabled = true;
-  this.betForm.className += ' disabled';
+  this.betForm.className = 'disabled';
 
   if (this.playerMoney < bet.value) {
     this.currentBet = this.playerMoney;
@@ -341,21 +341,24 @@ Game.prototype.endRound = function(outcome) {
 
   if (outcome === 'dealerBlackjack') {
     showDealerCard();
+    msg.className = 'red';
     msg.textContent = 'You lose.  Dealer has Blackjack.';
     console.log('You lose.  Dealer has Blackjack.');
   }
   else if (outcome === 'playerBlackjack') {
     this.playerMoney += Math.floor(this.currentBet * 3/2);
+    msg.className = 'blue';
     msg.textContent = 'You win.  You have Blackjack! Payout 3 to 2.';
     console.log('You win.  You have Blackjack! Payout 3 to 2.');
   }
   else if (outcome === 'playerBust') {
+    msg.className = 'red';
     msg.textContent = 'You lose.  You went over 21.';
     console.log('You lose.  You went over 21.');
   }
   else if (outcome === 'dealerBust') {
     this.playerMoney += (this.currentBet * 2);
-
+    msg.className = 'blue';
     msg.textContent = 'You win.  Dealer went over 21.';
     console.log('You win.  Dealer went over 21.');
 
@@ -365,20 +368,24 @@ Game.prototype.endRound = function(outcome) {
 
   }
   else if (outcome === 'pointsLose') {
+    msg.className = 'red';
     msg.textContent = 'You lose.  Dealer scored higher than you.';
     console.log('You lose.  Dealer scored higher than you.');
   }
   else if (outcome === 'pointsWin') {
     this.playerMoney += (this.currentBet * 2);
+    msg.className = 'blue';
     msg.textContent = 'You win.  You scored higher than dealer.';
     console.log('You win.  You scored higher than dealer.');
   }
   else if (outcome === 'push') {
     this.playerMoney += (this.currentBet * 1);
+    msg.className = 'blue';
     msg.textContent = 'You\'ve tied.';
     console.log('You\'ve tied.');
   }
   else {
+    msg.className = 'red';
     msg.textContent = 'INVALID OUTCOME!';
     console.log('INVALID OUTCOME!');
   }

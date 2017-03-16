@@ -339,7 +339,6 @@ td.score {
   padding: 10px 0 0 10px;
 }
 
-
 .tooltiptext {
     visibility: hidden;
     /*width: 300px;*/
@@ -361,6 +360,12 @@ td.score {
     visibility: visible;
 }
 
+#betForm {
+  height:30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 #betForm input {
   width: 40px;
 }
@@ -371,14 +376,25 @@ td.score {
 
 #msg {
   /*padding-bottom: 10px;*/
-  color:red;
   text-shadow: 2px 2px 8px #000;
   margin-bottom: -16px;
+  height:30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.red {
+  color:red;
+}
+
+.blue {
+  color: blue;
 }
 
 #money {
   /*margin-top: 25px;
   margin-bottom: -20px;*/
+  font-weight: bold;
   font-size: 20px;
   color:white;
   /*margin-right: 135px;
