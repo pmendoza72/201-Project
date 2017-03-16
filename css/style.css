@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
+  font-family: 'Lato', sans-serif;
 }
 
 header, footer, aside, section {
@@ -330,7 +331,7 @@ button {
 
 td.score {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   padding: 10px 0 0 10px;
 }
 
@@ -358,7 +359,7 @@ td.score {
 #betForm {
   height:30px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #betForm input {
@@ -371,19 +372,29 @@ td.score {
 
 #msg {
   /*padding-bottom: 10px;*/
-  text-shadow: 2px 2px 8px #000;
   margin-bottom: -16px;
   height:30px;
   font-weight: bold;
   font-size: 18px;
+  color:white;
 }
 
 .red {
-  color:red;
+  text-shadow:
+    2px 2px 5px #500,
+  -1px -1px 0 #500,
+   1px -1px 0 #500,
+   -1px 1px 0 #500,
+    1px 1px 0 #500;
 }
 
 .blue {
-  color: blue;
+  text-shadow:
+    2px 2px 5px #005,
+  -1px -1px 0 #005,
+   1px -1px 0 #005,
+   -1px 1px 0 #005,
+    1px 1px 0 #005;
 }
 
 #money {
