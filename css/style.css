@@ -24,13 +24,18 @@ header {
 }
 
 header div {
-  margin: 0 30px;
+  /*margin: 0 30px;*/
+  width: 300px;
+}
+
+.menu {
+  text-align: right;
 }
 
 .fa-bars {
   color: #fff;
   font-size: 24px;
-  padding-right: 40px;
+  padding-right: 60px;
   transform: scale(1.5,1);
 }
 
@@ -334,12 +339,6 @@ td.score {
   padding: 10px 0 0 10px;
 }
 
-.info {
-  height:30px;
-  /*border: 1px solid black;*/
-  font-weight: bold;
-  font-size: 18px;
-}
 
 .tooltiptext {
     visibility: hidden;
@@ -382,6 +381,6 @@ td.score {
   margin-bottom: -20px;*/
   font-size: 20px;
   color:white;
-  margin-right: 135px;
-  margin-left: 0px;
+  /*margin-right: 135px;
+  margin-left: 0px;*/
 }
