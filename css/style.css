@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-  font-family: 'Lato', sans-serif;
 }
 
 header, footer, aside, section {
@@ -25,7 +24,6 @@ header {
 }
 
 header div {
-  /*margin: 0 30px;*/
   width: 300px;
 }
 
@@ -51,7 +49,7 @@ main {
   justify-content: center;
   align-content: center;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 60px;
 }
 
 aside {
@@ -152,6 +150,7 @@ h4 {
 
 #nameForm input {
   margin: 10px 0;
+  text-align: center;
 }
 
 fieldset img {
@@ -168,10 +167,8 @@ fieldset img {
 
 input[type="submit"] {
   padding: 5px;
-  /*border: 2px solid #fff;*/
   border-radius: 5px;
   width: 220px;
-  /*text-shadow: -2px 2px #dd4135;*/
   background-color: #d03327;
   color: #fff;
   height: 40px;
@@ -193,7 +190,9 @@ input[type="submit"]:active {
 }
 
 label {
-
+  padding-right: 10px;
+  font-size: 20px;
+  color: #fff;
 }
 
 video#bgvid {
@@ -204,7 +203,7 @@ video#bgvid {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -100;
+    z-index: -99;
     -ms-transform: translateX(-50%) translateY(-50%);
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
@@ -219,6 +218,7 @@ video#bgvid {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
+  z-index: -100;
 }
 
 button {
@@ -332,6 +332,7 @@ button {
 
 .flexrow {
   flex-direction: row;
+  margin-top: 10px;
 }
 
 td.score {
@@ -362,13 +363,18 @@ td.score {
 }
 
 #betForm {
+  font-family: 'Lato', sans-serif;
   height:30px;
   font-weight: bold;
-  font-size: 16px;
+  padding: 5px;
 }
 
 #betForm input {
   width: 40px;
+  height: 20px;
+  padding: 3px;
+  font-size: 18px;
+  border-radius: 5px;
 }
 
 #betForm input:disabled {
