@@ -341,12 +341,44 @@ td.score {
   font-size: 18px;
 }
 
+.tooltiptext {
+    visibility: hidden;
+    /*width: 300px;*/
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+    margin-left: 100px;
+    margin-top: -5px;
+}
+
+.disabled:hover .tooltiptext {
+    visibility: visible;
+}
+
 #betForm input {
   width: 40px;
 }
 
+#betForm input:disabled {
+  background-color: #ddd;
+}
+
 #msg {
-  padding-bottom: 10px;
+  /*padding-bottom: 10px;*/
   color:red;
   text-shadow: 2px 2px 8px #000;
+  margin-bottom: -16px;
+}
+
+#money {
+  margin-top: 25px;
+  margin-bottom: -20px;
+  font-size: 20px;
 }

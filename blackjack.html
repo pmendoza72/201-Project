@@ -29,10 +29,14 @@
   </header>
   <main>
     <section>
+      <div id="money" class="info"></div>
+    </section>
+    <section>
       <table class="cardtable" id="dealer">
         <tr><td id="dealerScore" class="score"></td></tr>
         <tr id="dealerCards"></tr>
       </table>
+      <div id="msg" class="info"></div>
       <table class="cardtable" id="player">
         <tr><td id="playerScore" class="score"></td></tr>
         <tr id="playerCards"></tr>
@@ -40,15 +44,17 @@
     </section>
     <section>
       <div id="betForm" class="info">
-        <form>
+        <span class="tooltiptext">You can only change your bet between rounds.</span>
+        <form class="tooltip">
           <fieldset>
             <label for="bet">Bet: </label>
             <input id="bet" type="number" name="bet" value="10">
           </fieldset>
         </form>
       </div>
-      <div id="money" class="info"></div>
-      <div id="msg" class="info"></div>
+
+      <!-- <div id="money" class="info"></div> -->
+      <!-- <div id="msg" class="info"></div> -->
     </section>
     <section class="flexrow">
       <button id="newGame">NEW ROUND</button>
