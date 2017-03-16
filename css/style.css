@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-  background: url(../img/player-dealer.png);
-  z-index: 100;
 }
 
 header, footer, aside, section {
@@ -26,7 +24,6 @@ header {
 }
 
 header div {
-  /*margin: 0 30px;*/
   width: 300px;
 }
 
@@ -170,10 +167,8 @@ fieldset img {
 
 input[type="submit"] {
   padding: 5px;
-  /*border: 2px solid #fff;*/
   border-radius: 5px;
   width: 220px;
-  /*text-shadow: -2px 2px #dd4135;*/
   background-color: #d03327;
   color: #fff;
   height: 40px;
@@ -342,7 +337,7 @@ button {
 
 td.score {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   padding: 10px 0 0 10px;
 }
 
@@ -371,7 +366,6 @@ td.score {
   font-family: 'Lato', sans-serif;
   height:30px;
   font-weight: bold;
-  /*font-size: 24px;*/
   padding: 5px;
 }
 
@@ -389,19 +383,29 @@ td.score {
 
 #msg {
   /*padding-bottom: 10px;*/
-  text-shadow: 2px 2px 8px #000;
   margin-bottom: -16px;
   height:30px;
   font-weight: bold;
   font-size: 18px;
+  color:white;
 }
 
 .red {
-  color:red;
+  text-shadow:
+    2px 2px 5px #500,
+  -1px -1px 0 #500,
+   1px -1px 0 #500,
+   -1px 1px 0 #500,
+    1px 1px 0 #500;
 }
 
 .blue {
-  color: blue;
+  text-shadow:
+    2px 2px 5px #005,
+  -1px -1px 0 #005,
+   1px -1px 0 #005,
+   -1px 1px 0 #005,
+    1px 1px 0 #005;
 }
 
 #money {
@@ -412,4 +416,23 @@ td.score {
   color:white;
   /*margin-right: 135px;
   margin-left: 0px;*/
+}
+
+a.startOver {
+  margin-left: .5em;
+  color: #fff;
+  /*text-shadow: none;*/
+}
+
+a.startOver:visited {
+  color: #fff;
+}
+
+a.startOver:hover {
+  text-shadow:
+    2px 2px 5px #005,
+  -1px -1px 0 #005,
+   1px -1px 0 #005,
+   -1px 1px 0 #005,
+    1px 1px 0 #005;
 }

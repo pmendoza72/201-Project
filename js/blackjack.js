@@ -342,25 +342,21 @@ Game.prototype.endRound = function(outcome) {
   if (outcome === 'dealerBlackjack') {
     showDealerCard();
     msg.className = 'red';
-    msg.textContent = 'You lose.  Dealer has Blackjack.';
-    console.log('You lose.  Dealer has Blackjack.');
+    msg.textContent = 'You lose.  The dealer has Blackjack.';
   }
   else if (outcome === 'playerBlackjack') {
     this.playerMoney += Math.floor(this.currentBet * 3/2);
     msg.className = 'blue';
-    msg.textContent = 'You win.  You have Blackjack! Payout 3 to 2.';
-    console.log('You win.  You have Blackjack! Payout 3 to 2.');
+    msg.textContent = 'You win.  You have Blackjack!  Your payout is 3 to 2.';
   }
   else if (outcome === 'playerBust') {
     msg.className = 'red';
     msg.textContent = 'You lose.  You went over 21.';
-    console.log('You lose.  You went over 21.');
   }
   else if (outcome === 'dealerBust') {
     this.playerMoney += (this.currentBet * 2);
     msg.className = 'blue';
-    msg.textContent = 'You win.  Dealer went over 21.';
-    console.log('You win.  Dealer went over 21.');
+    msg.textContent = 'You win.  The dealer went over 21.';
 
     if(playerHand.getValue() <= 10 && game.standSpecial) {
       game.oreNoStando();
@@ -369,25 +365,21 @@ Game.prototype.endRound = function(outcome) {
   }
   else if (outcome === 'pointsLose') {
     msg.className = 'red';
-    msg.textContent = 'You lose.  Dealer scored higher than you.';
-    console.log('You lose.  Dealer scored higher than you.');
+    msg.textContent = 'You lose.  The dealer scored higher than you.';
   }
   else if (outcome === 'pointsWin') {
     this.playerMoney += (this.currentBet * 2);
     msg.className = 'blue';
-    msg.textContent = 'You win.  You scored higher than dealer.';
-    console.log('You win.  You scored higher than dealer.');
+    msg.textContent = 'You win.  You scored higher than the dealer.';
   }
   else if (outcome === 'push') {
     this.playerMoney += (this.currentBet * 1);
     msg.className = 'blue';
     msg.textContent = 'You\'ve tied.';
-    console.log('You\'ve tied.');
   }
   else {
     msg.className = 'red';
     msg.textContent = 'INVALID OUTCOME!';
-    console.log('INVALID OUTCOME!');
   }
   printMoney();
 
@@ -408,8 +400,13 @@ Game.prototype.endRound = function(outcome) {
   if (game.playerMoney === 0) {
     // alert('You\'re out of money.  Refresh the page to start over.')
     this.outOfMoney = document.createElement('span');
-    this.outOfMoney.textContent = '  You\'re out of money.  Refresh the page to start over.';
+    this.outOfMoney.innerHTML = '  You\'re out of money.';
+    this.startOver = document.createElement('a');
+    this.startOver.textContent = 'Start over.';
+    this.startOver.href = './blackjack.html';
+    this.startOver.className = 'startOver';
     msg.appendChild(this.outOfMoney);
+    this.outOfMoney.appendChild(this.startOver);
     newGameButton.disabled = true;
   }
 
