@@ -378,7 +378,10 @@ td.score {
 }
 
 #money {
-  margin-top: 25px;
-  margin-bottom: -20px;
+  /*margin-top: 25px;
+  margin-bottom: -20px;*/
   font-size: 20px;
+  color:white;
+  margin-right: 135px;
+  margin-left: 0px;
 }
