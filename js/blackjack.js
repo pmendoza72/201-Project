@@ -176,7 +176,9 @@ Game.prototype.startRound = function() {
   this.roundInProgress = true;
   newGameButton.disabled = true;
   this.bet = document.getElementById('bet');
+  this.betForm = document.getElementById('betForm');
   this.bet.disabled = true;
+  this.betForm.className += ' disabled';
 
   if (this.playerMoney < bet.value) {
     this.currentBet = this.playerMoney;
@@ -390,6 +392,7 @@ Game.prototype.endRound = function(outcome) {
   hitButton.disabled = true;
   standButton.disabled = true;
   this.bet.disabled = false;
+  this.betForm.classList.remove('disabled');
   console.log('Player now has $' + game.playerMoney + '.');
   if (game.playerMoney < bet.value) {
     game.bet.value = game.playerMoney;
@@ -493,7 +496,7 @@ function printScores() {
 }
 
 function printMoney() {
-  money.textContent = 'You have: $' + game.playerMoney;
+  money.textContent = 'Welcome, ' + game.playerName + '!  You have: $' + game.playerMoney + '.';
 }
 
 printMoney();
