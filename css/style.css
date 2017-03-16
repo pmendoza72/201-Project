@@ -411,3 +411,22 @@ td.score {
   /*margin-right: 135px;
   margin-left: 0px;*/
 }
+
+a.startOver {
+  margin-left: .5em;
+  color: #fff;
+  /*text-shadow: none;*/
+}
+
+a.startOver:visited {
+  color: #fff;
+}
+
+a.startOver:hover {
+  text-shadow:
+    2px 2px 5px #005,
+  -1px -1px 0 #005,
+   1px -1px 0 #005,
+   -1px 1px 0 #005,
+    1px 1px 0 #005;
+}
