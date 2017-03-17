@@ -1,0 +1,26 @@
+body {
+  background: url('../img/blackjack21.jpg')
+}
+
+h2 {
+  color:white;
+  font-size: 50px;
+  text-align: center;
+  font-family: penna-swashes, sans-serif;
+font-style: normal;
+font-weight: 400;
+
+
+}
+h1{
+  color:RGB(223, 193, 42);
+  font-size: 22px;
+  
+}
+
+p{
+  color:gray;
+  font-family: "Brush Script MT", cursive;
+  font-size: 25px;
+
+}
