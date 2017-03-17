@@ -1,38 +1,41 @@
 # BlackJack Outline
 
 ## Problem Domain
+* **Pre-load images - Steve**
 * ~~Determine the logic for blackjack~~
 * ~~Coding the logic~~
 * ~~Event handlers~~
 * ~~Display cards~~
-* Pre-load images
 * ~~User interaction~~
 * ~~Hit/Stay~~
 * ~~Bet~~
 * ~~New Round~~
-* Reset
+* ~~Reset~~
 * ~~Track user’s money~~
 * ~~Display current tally~~
 
 ## Stretch Goals
+* **Instructions - Pablo**
+* **Leaderboard (persistent data) - Steve**
+* **High scores, totals busts, total wins, number of blackjacks, number of 21s - Steve**
+* **Split Hand - Work in progress by Kevin**
+* **Number of decks: 1,2,4,6,8 - related to ab ove - Kevin**
+* ~~Double-Down~~
+* ~~Whether house hits on soft 16~~
 * ~~Alter bet amount~~
 * ~~Enter username (option for persistent data)~~
-* Leaderboard (persistent data)
-* High scores, totals busts, total wins, number of blackjacks, number of 21s
-* Not reshuffling decks
-* Multiple decks
-* Animation
-* ~~Double-Down~~
-* Split Hand
+
+## Stretch Goals We're Not Going to Do
 * Show chips
 * Sound
-* Card animations
 * Change optional rules
-* ~~Whether house hits on soft 16~~
-* Number of decks: 1,2,4,6,8
 * take insurance
 * AI players
 * multiple players
+* Not reshuffling decks
+* Multiple decks
+* Animation
+
 
 ## Potential Issues
 * ~~Displaying a lot of cards and screen space (we have a few solutions)~~
@@ -42,12 +45,12 @@
 
 ## Starting Page
 
+* **Add about-us page - Christian**
 * ~~Username page with form~~
 * ~~Snazzy background image~~
 * ~~LocalStorage~~
 * ~~EventListener for submit button~~
 * ~~Different js for this page - pretty simple for storage~~
-* Add about-us page
 
 ## BlackJack Page
 
@@ -64,7 +67,7 @@
 ### If blackjack occurs
 * ~~Game ends~~
 * ~~Results (Why you won or lost. $ total)~~
-* Option to restart
+* ~~Option to restart~~
 * ~~button appears~~
 * ~~Controls hidden~~
 
