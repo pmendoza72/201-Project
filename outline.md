@@ -25,7 +25,7 @@
 * ~~Alter bet amount~~
 * ~~Enter username (option for persistent data)~~
 
-## Stretch Goals We're Not Going to Do
+### Stretch Goals We're Not Going to Do
 * Show chips
 * Sound
 * Change optional rules
@@ -33,7 +33,6 @@
 * AI players
 * multiple players
 * Not reshuffling decks
-* Multiple decks
 * Animation
 
 
