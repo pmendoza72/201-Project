@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt');
+
+body {
+  background: url('../img/blackjack21.jpg')
+}
+
+h2 {
+  color:white;
+  font-size: 50px;
+  text-align: center;
+  font-family: 'Rock Salt', cursive;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1 {
+  color:RGB(223, 193, 42);
+  font-size: 22px;
+}
+
+p {
+  color:gray;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
