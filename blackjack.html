@@ -2,29 +2,63 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Final Project | BlackJack</title>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Monoton&effect=neon">
+  <title>Code Fellows | BlackJack</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="blackjackbg">
-  <header><h2 class="font-effect-neon neonheader">Code Fellows BlackJack</h2></header>
+
+  <!-- The overlay -->
+  <div id="nav" class="overlay">
+    <!-- Closes the overlay navigation -->
+    <a href="#" class="closeBtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <a href="index.html"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp;New Player</a>
+      <a href="blackjack.html"><i class="fa fa-refresh" aria-hidden="true"></i> &nbsp;BlackJack</a>
+      <a href="#" class="hireus" data-hover="Hire Us"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;About Us</a>
+    </div>
+
+  </div>
+
+  <header>
+    <div><img src="img/cf-blackjack-logo.png" alt="logo"></div>
+    <div id="money"></div>
+    <!-- Opens the overlay navigation -->
+    <div class="menu"><a href="#" class="openBtn" onclick="openNav()"><span class="fa fa-bars fa-3" aria-hidden="true"></span></a></div>
+  </header>
   <main>
     <section>
-      <table class="cardtable">
-        <tr id="dealerCards">
-        </tr>
-        <tr id="playerCards">
-        </tr>
+      <table class="cardtable" id="dealer">
+        <tr><td id="dealerScore" class="score"></td></tr>
+        <tr id="dealerCards"></tr>
+      </table>
+      <div id="msg"></div>
+      <table class="cardtable" id="player">
+        <tr><td id="playerScore" class="score"></td></tr>
+        <tr id="playerCards"></tr>
       </table>
     </section>
     <section>
-      <table class="playercontrol">
-        <tr>
-          <td>HIT</td>
-          <td>STAND</td>
-          <td>NEW GAME</td>
-        </tr>
-      </table>
+      <div id="betForm">
+        <span class="tooltiptext">You can only change your bet between rounds.</span>
+        <form class="tooltip">
+          <fieldset>
+            <label for="bet">Bet: </label>
+            <input id="bet" type="number" name="bet" value="10">
+          </fieldset>
+        </form>
+      </div>
+
+      <!-- <div id="money" class="info"></div> -->
+      <!-- <div id="msg" class="info"></div> -->
+    </section>
+    <section class="flexrow">
+      <button id="newGame">NEW ROUND</button>
+      <button id="hit">HIT</button>
+      <button id ="stand">STAND</button>
+      <button id="double">DOUBLE-DOWN</button>
     </section>
   </main>
   <footer></footer>

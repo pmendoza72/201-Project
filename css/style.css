@@ -1,6 +1,7 @@
+@import url("reset.css");
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-  /*border: 4px solid red;*/
 }
 
 header, footer, aside, section {
@@ -8,26 +9,47 @@ header, footer, aside, section {
 }
 
 header {
-  /*border: 4px solid blue;*/
-  display: flex;
-  justify-content: center;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-content: center;
+  align-items: center;
+  height: 18px;
   background: rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+header div {
+  width: 300px;
+}
+
+.menu {
+  text-align: right;
+}
+
+.fa-bars {
+  color: #fff;
+  font-size: 24px;
+  padding-right: 60px;
+  transform: scale(1.5,1);
 }
 
 header h2 {
   font-size: 80px;
-  padding: 15px 0;
 }
 
 main {
-  /*border: 4px solid #e2da1d;*/
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
+  padding-top: 60px;
 }
 
 aside {
@@ -35,19 +57,21 @@ aside {
 }
 
 section {
-  /*border: 2px dashed #28065b;*/
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+  align-items: center;
+  padding: 0;
 }
 
+
 footer {
-  /*border: 4px solid #8e641e;*/
   margin-bottom: 30px;
 }
 
 img {
-  width: 100%;
   height: auto;
 }
 
@@ -56,15 +80,29 @@ table {
   border-radius: 15px;
   border-collapse: separate;
   background: rgba(255,255,255,0.2);
+  min-width: 330px;
+  min-height: 269px;
+  box-shadow: 10px 10px 5px #2b2a2a;
+  border-spacing: 10px 5px;
+  margin: 20px 0;
 }
 
 tr {
 
 }
 
+tr.styleScore {
+  color: #fff;
+  height: 80px;
+}
+
 td {
-  /*border: 1px dashed red;*/
-  padding: 15px;
+}
+
+td img {
+  box-shadow: 13px 13px 13px;
+  transition-duration: 2.5s;
+  border-radius: 5px;
 }
 
 h1 {
@@ -93,19 +131,68 @@ h4 {
     align-items: flex-start;
 }
 */
+
 #nameForm {
-  width: 200px;
+  /*width: 200px;*/
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  margin-top: 100px;
 }
+
 #nameForm fieldset {
-  border:1px dashed black;
+  /*border:3px solid #ccc;*/
   margin: 0;
-  padding: 10px;
+  padding: 70px 120px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px 10px;
 }
+
 #nameForm input {
-  margin-top: 5px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+fieldset img {
+  padding-right: 15px;
+  padding-bottom: 20px;
+  transform: scale(1.1);
+}
+
+.namefield {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+input[type="submit"] {
+  padding: 5px;
+  border-radius: 5px;
+  width: 220px;
+  background-color: #d03327;
+  color: #fff;
+  height: 40px;
+  font-weight: bold;
+  font-family: 'Lato';
+  font-size: 20px;
+  outline: none;
+}
+
+input[type="submit"]:hover {
+  background-color: #ba2418;
+  box-shadow: 0 4px #000;
+}
+
+input[type="submit"]:active {
+  background-color: #ba2418;
+  box-shadow: 0 5px ##8b160d;
+  transform: translateY(2px);
+}
+
+label {
+  padding-right: 10px;
+  font-size: 20px;
+  color: #fff;
 }
 
 video#bgvid {
@@ -116,7 +203,7 @@ video#bgvid {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -100;
+    z-index: -99;
     -ms-transform: translateX(-50%) translateY(-50%);
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
@@ -125,16 +212,227 @@ video#bgvid {
   }
 
 .blackjackbg {
-  background: url('table-bg.jpg');
+  background: url('../img/table-bg.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
+  z-index: -100;
 }
 
-.neonheader {
-  font-family: Monoton;
-  /*font-size: 8em;*/
-  text-align: center;
+button {
+  border: 3px solid #ccc;
+  border-radius: 50px;
+  padding: 5px;
+  margin: 0 15px;
+  background-color: #1640be;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.8);
+  outline:none;
+}
+
+button:hover {
+  background-color: #005;
+  color: #fff;
+}
+
+button:disabled {
+  background-color: #500;
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+
+header div {
+  margin-left: 5px;
+}
+}
+
+@media (max-width: 796px) {
+
+button {
+  margin-top: 20px;
+}
+}
+
+
+/* Overlay Menu Navigation */
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 0;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 15%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    font-family: sans-serif;
+    padding: 20px 0;
+    text-decoration: none;
+    font-size: 36px;
+    /*background-color: #1a1919;
+    border: 2px solid #ccc;*/
+    margin: 40px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: #fff;
+    /*background-color: #000;*/
+}
+
+/* Position the close button (top right corner) */
+.overlay .closeBtn {
+    position: absolute;
+    /*top: 20px;*/
+    right: 45px;
+    font-size: 60px;
+    padding: 8px;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closeBtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+.flexrow {
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+td.score {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 0 0 10px;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    /*width: 300px;*/
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+    margin-left: 120px;
+    margin-top: 3px;
+}
+
+.disabled:hover .tooltiptext {
+    visibility: visible;
+}
+
+#betForm {
+  font-family: 'Lato', sans-serif;
+  height:30px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+#betForm input {
+  width: 40px;
+  height: 20px;
+  padding: 3px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+#betForm input:disabled {
+  background-color: #ddd;
+}
+
+#msg {
+  /*padding-bottom: 10px;*/
+  margin-bottom: -16px;
+  height:30px;
+  font-weight: bold;
+  font-size: 18px;
+  color:white;
+}
+
+.red {
+  text-shadow:
+    2px 2px 5px #500,
+  -1px -1px 0 #500,
+   1px -1px 0 #500,
+   -1px 1px 0 #500,
+    1px 1px 0 #500;
+}
+
+.blue {
+  text-shadow:
+    2px 2px 5px #005,
+  -1px -1px 0 #005,
+   1px -1px 0 #005,
+   -1px 1px 0 #005,
+    1px 1px 0 #005;
+}
+
+#money {
+  /*margin-top: 25px;
+  margin-bottom: -20px;*/
+  font-weight: bold;
+  font-size: 20px;
+  color:white;
+  /*margin-right: 135px;
+  margin-left: 0px;*/
+}
+
+a.startOver {
+  margin-left: .5em;
+  color: #fff;
+  /*text-shadow: none;*/
+}
+
+a.startOver:visited {
+  color: #fff;
+}
+
+a.startOver:hover {
+  text-shadow:
+    2px 2px 5px #005,
+  -1px -1px 0 #005,
+   1px -1px 0 #005,
+   -1px 1px 0 #005,
+    1px 1px 0 #005;
 }
