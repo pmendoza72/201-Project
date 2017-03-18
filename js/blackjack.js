@@ -12,6 +12,8 @@ var msg = document.getElementById('msg');
 
 var money = document.getElementById('money');
 
+var highScore = 0;
+
 
 //CONSTRUCTORS
 function Card(file, value) {
@@ -162,6 +164,29 @@ function Game(playerName, startMoney) {
 //Game methods here
 Game.prototype.getName = function() {
   this.playerName = localStorage.getItem('name');
+}
+
+Game.prototype.highScore = function() {
+  if (this.playerMoney > highScore) {
+    highScore = this.playerMoney;
+  }
+  if (localStorage.getItem('highScores')){
+    this.stringifiedScores = localStorage.getItem('highScores');
+    this.highScoreArr = JSON.parse(this.stringifiedScores);
+  }
+  else {
+    this.highScoreArr = [];
+  }
+  this.playerHighScore = {name:this.playerName, score:highScore};
+  this.highScoreArr.push(this.playerHighScore);
+  this.highScoreArr.sort(function(a, b){
+    return b.score - a.score;
+  })
+  while (this.highScoreArr.length > 5) {
+    this.highScoreArr.pop();
+  }
+  this.stringifiedScores = JSON.stringify(this.highScoreArr);
+  localStorage.setItem('highScores', this.stringifiedScores);
 }
 
 Game.prototype.getCardPath = function(type, suit) {
