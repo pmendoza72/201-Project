@@ -8,6 +8,14 @@
 </head>
 <body class="blackjackbg">
 
+  <!-- SIDEBAR -->
+  <div class="sidebar flexrow">
+          <button id="newGame">NEW ROUND</button>
+          <button id="hit" disabled="">HIT</button>
+          <button id="stand" disabled="">STAND</button>
+          <button id="double" disabled="">DOUBLE-DOWN</button>
+  </div>
+
   <!-- SLIDEOUT -->
   <div class="slideout-left">HOW TO &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
     <div class="slideout-left_inner">
@@ -26,35 +34,38 @@
     </div>
   </div>
 
-  <!-- The overlay -->
+  <!-- OVERLAY -->
   <div id="nav" class="overlay">
-    <!-- Closes the overlay navigation -->
+    <!-- CLOSES THE OVERLAY -->
     <a href="#" class="closeBtn" onclick="closeNav()">&times;</a>
-
-    <!-- Overlay content -->
+    <!-- OVERLAY CONTENT -->
     <div class="overlay-content">
       <a href="index.html"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp;New Player</a>
       <a href="blackjack.html"><i class="fa fa-refresh" aria-hidden="true"></i> &nbsp;BlackJack</a>
       <a href="#" class="hireus" data-hover="Hire Us"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;About Us</a>
     </div>
-
   </div>
 
   <header>
     <div><img src="img/cf-blackjack-logo.png" alt="logo"></div>
     <div id="money"></div>
-    <!-- Opens the overlay navigation -->
+    <!-- OPENS THE OVERLAY -->
     <div class="menu"><a href="#" class="openBtn" onclick="openNav()"><span class="fa fa-bars fa-3" aria-hidden="true"></span></a></div>
   </header>
+
+
   <main>
     <section>
+      <!-- DEALER TABLE -->
       <div class="dealerbg">
         <table class="cardtable" id="dealer">
           <tr><td id="dealerScore" class="score"></td></tr>
           <tr id="dealerCards"></tr>
         </table>
       </div>
+      <!-- MESSAGE -->
       <div id="msg"></div>
+      <!-- PLAYER TABLE -->
       <div class="playerbg">
         <table class="cardtable" id="player">
           <tr><td id="playerScore" class="score"></td></tr>
@@ -62,6 +73,7 @@
         </table>
       </div>
     </section>
+    <!-- BET -->
     <section>
       <div id="betForm">
         <span class="tooltiptext">You can only change your bet between rounds.</span>
@@ -72,16 +84,8 @@
           </fieldset>
         </form>
       </div>
+    </section>
 
-      <!-- <div id="money" class="info"></div> -->
-      <!-- <div id="msg" class="info"></div> -->
-    </section>
-    <section class="flexrow">
-      <button id="newGame">NEW ROUND</button>
-      <button id="hit">HIT</button>
-      <button id ="stand">STAND</button>
-      <button id="double">DOUBLE-DOWN</button>
-    </section>
   </main>
   <footer></footer>
   <script src="js/blackjack.js"></script>
