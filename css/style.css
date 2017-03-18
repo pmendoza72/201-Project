@@ -580,7 +580,7 @@ a.startOver:hover {
 .slideout-right_inner {
   position: fixed;
   top: 90px;
-  right: -450px;
+  right: -350px;
   background-color: rgba(0,0,0, 0.6); /* Black w/opacity */
   color: #fff;
   width: 300px;
