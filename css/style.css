@@ -583,9 +583,9 @@ a.startOver:hover {
   right: -450px;
   background-color: rgba(0,0,0, 0.6); /* Black w/opacity */
   color: #fff;
-  width: 400px;
+  width: 300px;
   padding: 25px;
-  height: 300px;
+  height: 150px;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
@@ -596,8 +596,16 @@ a.startOver:hover {
   border-radius: 0 0 0 8px;
 }
 
+.slideout-right_inner ul {
+  margin-left: 30px;
+}
+
+.slideout-right_inner ul li {
+  margin-bottom:10px;
+}
+
 .slideout-right:hover {
-  right: 450px;
+  right: 350px;
   background-color: rgba(0,0,0, 0.9);
 }
 
