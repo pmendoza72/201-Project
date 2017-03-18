@@ -3,28 +3,62 @@
 <head>
   <title>CodeFellows | BlackJack | About Us</title>
   <link rel="stylesheet" href="css/about-us.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+  <!-- OVERLAY -->
+  <div id="nav" class="overlay">
+    <!-- CLOSES THE OVERLAY -->
+    <a href="#" class="closeBtn" onclick="closeNav()">&times;</a>
+    <!-- OVERLAY CONTENT -->
+    <div class="overlay-content">
+      <a href="index.html"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp;New Player</a>
+      <a href="blackjack.html"><i class="fa fa-refresh" aria-hidden="true"></i> &nbsp;BlackJack</a>
+      <a href="about-us.html" class="hireus" data-hover="Hire Us"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;About Us</a>
+    </div>
+  </div>
+
   <header>
+    <div><img src="img/cf-blackjack-logo.png" alt="logo"></div>
+    <div id="money"></div>
+    <!-- OPENS THE OVERLAY -->
+    <div class="menu"><a href="#" class="openBtn" onclick="openNav()"><span class="fa fa-bars fa-3" aria-hidden="true"></span></a></div>
   </header>
   <section class="us-content">
     <h2>Meet the team</h2>
+    <br>
   </section>
   <section id="team-info">
   <h1>Kevin</h1>
-  <img src="" alt="">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ut, assumenda sunt sit, neque accusantium placeat consequuntur molestias consequatur eaque veniam hic aliquid ad, illo unde eum. Magnam reiciendis, facere!</p>
+  <table>
+    <tr><td><img src="img/kevin.jpg" width="250" height="250"></td>
+    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ut, assumenda sunt sit, neque accusantium placeat consequuntur molestias consequatur eaque veniam hic aliquid ad, illo unde eum. Magnam reiciendis, facere!</td></tr>
+  </table>
+
     <h1>Pablo</h1>
-    <img src="" alt="">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <table>
+      <tr><td><img src="img/pablo.jpg" width="250" height="250"></td>
+      <td>Pablo Mendoza is a father to his amazing son, Santiago, and a front-end web developer studying to become a full stack developer, in that order.</td></tr>
+    </table>
+
+
+
     <h1>Steve</h1>
-    <img src="" alt="">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <table>
+      <tr><td><img src="img/steve.jpg" width="250" height="250"></td>
+    <td>Born and raised in Boston. BS Biology '07. Lived in San Diego from '07 to '12. Lived in Arcata, CA (Redwoods) from '12 to '15. Short stint in Sonoma County then been in Bellevue since 9/15.
+
+Spent middle and high school working for my school's IT department. Learned network infrastructure, NT server environment, cabling, etc. Continued to work there through college. Taught HS Biology/Chemistry/Physics '07-'09. Did freelance computer work (hardware/OS) and front-end development on CMS platforms such as Joomla and WordPress, including a production e-commerce site for my own business. All production sites hosted in LAMP VPS environment (Slicehost now Rackspace). Joined another business as a partner in 2010. Been running that ever since.</td></tr>
+</table>
+
     <h1>Christian</h1>
-    <img src="" alt="">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <table>
+    <tr><td><img src="img/christian.jpg" width="250" height="250" ></td>
+    <td>Christian is brand new to web development, having been working in warehouse logistics.  Already is bored with his job decided to do something different and enjoying his frist experience writing code.</td></tr>
+  </table>
   </section>
+  <script src="js/blackjack.js"></script>
 </body>
 </html>
-<footer>
-</footer>
+<br>
+<footer>Copyright &copy; 2017</footer>
