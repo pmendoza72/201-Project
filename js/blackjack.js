@@ -12,6 +12,8 @@ var msg = document.getElementById('msg');
 
 var money = document.getElementById('money');
 
+var highScore = 0;
+
 
 //CONSTRUCTORS
 function Card(file, value) {
@@ -164,6 +166,52 @@ Game.prototype.getName = function() {
   this.playerName = localStorage.getItem('name');
 }
 
+//gets the high score object from the game.highScoreArr array
+Game.prototype.getHighScore = function(name) {
+  if(game.highScoreArr === null) {return false;}
+
+  for (var i = 0; i < game.highScoreArr.length; i++) {
+    if(game.highScoreArr[i].name === name) {
+      return game.highScoreArr[i];
+    }
+  }
+
+  return false;
+}
+
+Game.prototype.highScore = function() {
+  if (this.playerMoney > highScore) {
+    highScore = this.playerMoney;
+  }
+  if (localStorage.getItem('highScores')){
+    this.stringifiedScores = localStorage.getItem('highScores');
+    this.highScoreArr = JSON.parse(this.stringifiedScores);
+  }
+  else {
+    this.highScoreArr = [];
+  }
+  this.playerHighScore = {name:this.playerName, score:highScore};
+  var currentHS = game.getHighScore(this.playerName);
+  if(currentHS) {
+    if(currentHS.score < this.playerHighScore.score) {
+      currentHS.score = this.playerHighScore.score;
+    }
+  }
+  else {
+    this.highScoreArr.push(this.playerHighScore);
+  }
+  this.highScoreArr.sort(function(a, b){
+    return b.score - a.score;
+  })
+  while (this.highScoreArr.length > 5) {
+    this.highScoreArr.pop();
+  }
+  console.log(this.highScoreArr);
+  this.stringifiedScores = JSON.stringify(this.highScoreArr);
+  console.log(this.stringifiedScores);
+  localStorage.setItem('highScores', this.stringifiedScores);
+}
+
 Game.prototype.getCardPath = function(type, suit) {
   return 'cards/' + type + '_of_' + suit + '.png';
 }
@@ -193,14 +241,6 @@ Game.prototype.startRound = function() {
   playerHand.draw();
   dealerHand.draw();
   playerHand.draw();
-
-  // console.log(dealerHand.getInitialDValue());
-  // console.log(playerHand.getValue());
-
-  // setTimeout (#Deal to player#, 500);
-  // setTimeout (#Deal to dealer#, 1000);
-  // setTimeout (#Deal to player#, 1500);
-  // setTimeout (#Deal to dealer#, 2000);
 
   setTimeout(game.checkBlackjack, 1000);
   game.clearCards();
@@ -382,6 +422,7 @@ Game.prototype.endRound = function(outcome) {
     msg.textContent = 'INVALID OUTCOME!';
   }
   printMoney();
+  game.highScore();
 
   this.currentBet = 0;
   this.roundInProgress = false;
