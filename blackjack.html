@@ -7,25 +7,27 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="blackjackbg">
-
+  
   <!-- SIDEBAR -->
   <div class="sidebar flexrow">
-          <div id="betForm">
-            <span class="tooltiptext">You can only change your bet between rounds.</span>
-            <form class="tooltip">
-              <fieldset>
-                <label for="bet">Bet: </label>
-                <input id="bet" type="number" name="bet" value="10">
-              </fieldset>
-            </form>
-          </div>
-          <button id="newGame">NEW ROUND</button>
-          <button id="hit" disabled="">HIT</button>
-          <button id="stand" disabled="">STAND</button>
-          <button id="double" disabled="">DOUBLE-DOWN</button>
+
+    <div id="betForm">
+      <span class="tooltiptext">You can only change your bet between rounds.</span>
+      <form class="tooltip">
+        <fieldset>
+          <label for="bet">Bet: </label>
+          <input id="bet" type="number" name="bet" value="10">
+        </fieldset>
+      </form>
+    </div>
+    <button id="newGame">NEW ROUND</button>
+    <button id="hit" disabled="">HIT</button>
+    <button id="stand" disabled="">STAND</button>
+    <button id="double" disabled="">DOUBLE-DOWN</button>
+
   </div>
 
-  <!-- SLIDEOUT -->
+  <!-- SLIDEOUT-LEFT -->
   <div class="slideout-left">HOW TO &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
     <div class="slideout-left_inner">
       <h3>How To Play</h3>
@@ -47,6 +49,11 @@
       </ul>
     </div>
   </div>
+  <div class="slideout-right"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;LEADERS
+    <div div="HSTable" class="slideout-right_inner">
+
+    </div>
+  </div>
 
   <!-- OVERLAY -->
   <div id="nav" class="overlay">
@@ -56,7 +63,7 @@
     <div class="overlay-content">
       <a href="index.html"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp;New Player</a>
       <a href="blackjack.html"><i class="fa fa-refresh" aria-hidden="true"></i> &nbsp;BlackJack</a>
-      <a href="#" class="hireus" data-hover="Hire Us"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;About Us</a>
+      <a href="about-us.html"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;About Us</a>
     </div>
   </div>
 
@@ -69,6 +76,9 @@
 
 
   <main>
+    <div class="chips">
+      <img src="img\cf-poker-chips.png" alt="poker chips">
+    </div>
     <section>
       <!-- DEALER TABLE -->
       <div class="dealerbg">
