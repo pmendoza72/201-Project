@@ -8,6 +8,24 @@
 </head>
 <body class="blackjackbg">
 
+  <!-- SLIDEOUT -->
+  <div class="slideout-left">HOW TO &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+    <div class="slideout-left_inner">
+      <h3>How To Bet</h3>
+      <ul>
+        <li>List1</li>
+        <li>List2</li>
+        <li>List3</li>
+      </ul>
+      <h3>How To Play</h3>
+      <ul>
+        <li>List1</li>
+        <li>List2</li>
+        <li>List3</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- The overlay -->
   <div id="nav" class="overlay">
     <!-- Closes the overlay navigation -->
@@ -30,15 +48,19 @@
   </header>
   <main>
     <section>
-      <table class="cardtable" id="dealer">
-        <tr><td id="dealerScore" class="score"></td></tr>
-        <tr id="dealerCards"></tr>
-      </table>
+      <div class="dealerbg">
+        <table class="cardtable" id="dealer">
+          <tr><td id="dealerScore" class="score"></td></tr>
+          <tr id="dealerCards"></tr>
+        </table>
+      </div>
       <div id="msg"></div>
-      <table class="cardtable" id="player">
-        <tr><td id="playerScore" class="score"></td></tr>
-        <tr id="playerCards"></tr>
-      </table>
+      <div class="playerbg">
+        <table class="cardtable" id="player">
+          <tr><td id="playerScore" class="score"></td></tr>
+          <tr id="playerCards"></tr>
+        </table>
+      </div>
     </section>
     <section>
       <div id="betForm">
