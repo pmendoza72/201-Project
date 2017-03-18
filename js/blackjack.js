@@ -14,6 +14,8 @@ var money = document.getElementById('money');
 
 var highScore = 0;
 
+var HSTable = document.getElementById('HSTable');
+
 
 //CONSTRUCTORS
 function Card(file, value) {
@@ -210,6 +212,7 @@ Game.prototype.highScore = function() {
   this.stringifiedScores = JSON.stringify(this.highScoreArr);
   console.log(this.stringifiedScores);
   localStorage.setItem('highScores', this.stringifiedScores);
+  this.renderHS();
 }
 
 Game.prototype.getCardPath = function(type, suit) {
@@ -458,6 +461,24 @@ Game.prototype.oreNoStando = function() {
   playerCards.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/bnifMws_pCI?autoplay=1" frameborder="0" allowfullscreen></iframe>';
 }
 
+Game.prototype.renderHS = function() {
+
+  if (document.getElementById('HSUL')) {
+    this.HSUL = document.getElementById('HSUL');
+    this.HSUL.remove();
+  }
+  this.HSUL = document.createElement('ul');
+  this.HSUL.id = 'HSUL';
+  HSTable.appendChild(this.HSUL);
+
+  for (var i = 0; i < game.highScoreArr.length; i++) {
+    this.HSLI = document.createElement('li');
+    this.HSLI.textContent = (i+1 + '. ' +  game.highScoreArr[i].name + ': ' + game.highScoreArr[i].score);
+    this.HSUL.appendChild(this.HSLI);
+  }
+}
+
+
 //Define types of cards
 
 var suits = ['spades', 'clubs', 'diamonds', 'hearts'];
@@ -527,6 +548,8 @@ function showDealerCard() {
   game.clearCards();
   game.renderCards();
 };
+
+game.highScore();
 
 // Functions for printing to DOM
 
