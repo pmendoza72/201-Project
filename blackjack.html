@@ -10,6 +10,15 @@
 
   <!-- SIDEBAR -->
   <div class="sidebar flexrow">
+          <div id="betForm">
+            <span class="tooltiptext">You can only change your bet between rounds.</span>
+            <form class="tooltip">
+              <fieldset>
+                <label for="bet">Bet: </label>
+                <input id="bet" type="number" name="bet" value="10">
+              </fieldset>
+            </form>
+          </div>
           <button id="newGame">NEW ROUND</button>
           <button id="hit" disabled="">HIT</button>
           <button id="stand" disabled="">STAND</button>
@@ -24,7 +33,7 @@
         <li>The goal of the game is to score higher than the dealer, but less than or equal to 21.</li>
         <li>You go first.  You can 'hit' (draw) as many times as you want to try to reach 21.</li>
         <li>If you go over 21, you 'bust' and the dealer automatically wins.</li>
-        <li>When you think you've reached your highest, safe score, 'stay' to end your turn and give the dealer a try.</li>
+        <li>When you think you've reached your highest, safe score, 'stand' to end your turn and give the dealer a try.</li>
       </ul>
       <h3>How To Bet</h3>
       <ul>
@@ -34,7 +43,7 @@
         <li>If you win, you double your bet.</li>
         <li>If you lose, you also lose your bet.</li>
         <li>If you tie, you get your bet back.</li>
-        <li>You can 'Double Down' to double your bet.  Only do this if your initial hand looks good (9-11 points).  You will be dealt one card.  The above rules apply.</li>
+        <li>You can 'Double Down' to double your bet.  Only do this if your initial hand looks good (9-11 points).  You will only be dealt one card.  The above rules apply.</li>
       </ul>
     </div>
   </div>
@@ -80,15 +89,7 @@
     </section>
     <!-- BET -->
     <section>
-      <div id="betForm">
-        <span class="tooltiptext">You can only change your bet between rounds.</span>
-        <form class="tooltip">
-          <fieldset>
-            <label for="bet">Bet: </label>
-            <input id="bet" type="number" name="bet" value="10">
-          </fieldset>
-        </form>
-      </div>
+
     </section>
 
   </main>
