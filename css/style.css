@@ -466,12 +466,12 @@ a.startOver:hover {
   color: #fff;
   position: fixed;
   top: 100px;
-  left: -350px;
+  left: -450px;
   background-color: rgba(0,0,0, 0.6); /* Black w/opacity */
   /*background: #6b6e6a;*/
-  width: 300px;
+  width: 400px;
   padding: 25px;
-  height: 400px;
+  height: 600px;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
@@ -483,15 +483,17 @@ a.startOver:hover {
 }
 
 .slideout-left_inner ul {
-
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .slideout-left_inner li {
-  margin: 10px 0;
+  margin: 15px 0;
+  font-size: 14px;
 }
 
 .slideout-left:hover {
-  left: 350px;
+  left: 450px;
 }
 
 .slideout-left:hover .slideout-left_inner {
