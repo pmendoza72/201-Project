@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Code Fellows | BlackJack | Play</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="blackjackbg">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar flexrow">
+
+    <div id="betForm">
+      <span class="tooltiptext">You can only change your bet between rounds.</span>
+      <form class="tooltip">
+        <fieldset>
+          <label for="bet">Bet: </label>
+          <input id="bet" type="number" name="bet" value="10">
+        </fieldset>
+      </form>
+    </div>
+    <button id="newGame">NEW ROUND</button>
+    <button id="hit" disabled="">HIT</button>
+    <button id="stand" disabled="">STAND</button>
+    <button id="double" disabled="">DOUBLE-DOWN</button>
+
+  </div>
+
+  <!-- SLIDEOUT-LEFT -->
+  <div class="slideout-left">HOW TO &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+    <div class="slideout-left_inner">
+      <h3>How To Play</h3>
+      <ul>
+        <li>The goal of the game is to score higher than the dealer, but less than or equal to 21.</li>
+        <li>You go first.  You can 'hit' (draw) as many times as you want to try to reach 21.</li>
+        <li>If you go over 21, you 'bust' and the dealer automatically wins.</li>
+        <li>When you think you've reached your highest, safe score, 'stand' to end your turn and give the dealer a try.</li>
+      </ul>
+      <h3>How To Bet</h3>
+      <ul>
+        <li>Your can only change your bet between rounds.</li>
+        <li>Your bet cannot exceed your money on hand.</li>
+        <li>If you bet higher, the game will correct your bet to whatever you have left.</li>
+        <li>If you win, you double your bet.</li>
+        <li>If you lose, you also lose your bet.</li>
+        <li>If you tie, you get your bet back.</li>
+        <li>You can 'Double Down' to double your bet.  Only do this if your initial hand looks good (9-11 points).  You will only be dealt one card.  The above rules apply.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slideout-right"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;LEADERS
+    <div id="HSTable" class="slideout-right_inner">
+
+    </div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div id="nav" class="overlay">
+    <!-- CLOSES THE OVERLAY -->
+    <a href="#" class="closeBtn" onclick="closeNav()">&times;</a>
+    <!-- OVERLAY CONTENT -->
+    <div class="overlay-content">
+      <a href="index.html"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp;New Player</a>
+      <a href="blackjack.html"><i class="fa fa-refresh" aria-hidden="true"></i> &nbsp;BlackJack</a>
+      <a href="about-us.html"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;About Us</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="logo"><img src="img/cf-blackjack-logo.png" alt="logo"></div>
+    <div id="money"></div>
+    <!-- OPENS THE OVERLAY -->
+    <div class="menu"><a href="#" class="openBtn" onclick="openNav()"><span class="fa fa-bars fa-3" aria-hidden="true"></span></a></div>
+  </header>
+
+
+  <main>
+    <div class="chips">
+      <img src="img\cf-poker-chips.png" alt="poker chips">
+    </div>
+    <section>
+      <!-- DEALER TABLE -->
+      <div class="dealerbg">
+        <table class="cardtable" id="dealer">
+          <tr><td id="dealerScore" class="score"></td></tr>
+          <tr id="dealerCards"></tr>
+        </table>
+      </div>
+      <!-- MESSAGE -->
+      <div id="msg"></div>
+      <!-- PLAYER TABLE -->
+      <div class="playerbg">
+        <table class="cardtable" id="player">
+          <tr><td id="playerScore" class="score"></td></tr>
+          <tr id="playerCards"></tr>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+  <script src="js/blackjack.js"></script>
+</body>
+</html>
