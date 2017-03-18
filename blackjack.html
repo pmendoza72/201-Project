@@ -10,6 +10,15 @@
 
   <!-- SIDEBAR -->
   <div class="sidebar flexrow">
+    <div id="betForm">
+      <span class="tooltiptext">You can only change your bet between rounds.</span>
+      <form class="tooltip">
+        <fieldset>
+          <label for="bet">Bet: </label>
+          <input id="bet" type="number" name="bet" value="10">
+        </fieldset>
+      </form>
+    </div>
           <button id="newGame">NEW ROUND</button>
           <button id="hit" disabled="">HIT</button>
           <button id="stand" disabled="">STAND</button>
@@ -52,7 +61,7 @@
   </div>
 
   <header>
-    <div><img src="img/cf-blackjack-logo.png" alt="logo"></div>
+    <div class="logo"><img src="img/cf-blackjack-logo.png" alt="logo"></div>
     <div id="money"></div>
     <!-- OPENS THE OVERLAY -->
     <div class="menu"><a href="#" class="openBtn" onclick="openNav()"><span class="fa fa-bars fa-3" aria-hidden="true"></span></a></div>
@@ -79,17 +88,9 @@
       </div>
     </section>
     <!-- BET -->
-    <section>
-      <div id="betForm">
-        <span class="tooltiptext">You can only change your bet between rounds.</span>
-        <form class="tooltip">
-          <fieldset>
-            <label for="bet">Bet: </label>
-            <input id="bet" type="number" name="bet" value="10">
-          </fieldset>
-        </form>
-      </div>
-    </section>
+    <!-- <section>
+
+    </section> -->
 
   </main>
   <footer></footer>
