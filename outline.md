@@ -1,7 +1,7 @@
 # BlackJack Outline
 
 ## Problem Domain
-* **Pre-load images - Steve**
+* **Pre-load images - Steve** - Out of time...
 * ~~Determine the logic for blackjack~~
 * ~~Coding the logic~~
 * ~~Event handlers~~
@@ -15,11 +15,11 @@
 * ~~Display current tally~~
 
 ## Stretch Goals
-* **Instructions - Pablo**
-* **Leaderboard (persistent data) - Steve**
-* **High scores, totals busts, total wins, number of blackjacks, number of 21s - Steve**
-* **Split Hand - Work in progress by Kevin**
-* **Number of decks: 1,2,4,6,8 - related to ab ove - Kevin**
+* ~~Instructions - Pablo and Steve~~
+* ~~Leaderboard (persistent data) - Steve~~
+* **High scores, totals busts, total wins, number of blackjacks, number of 21s - Steve** - Out of time...
+* **Split Hand - Work in progress by Kevin** - Out of time...
+* **Number of decks: 1,2,4,6,8 - related to ab ove - Kevin** - Out of time...
 * ~~Double-Down~~
 * ~~Whether house hits on soft 16~~
 * ~~Alter bet amount~~
@@ -44,7 +44,7 @@
 
 ## Starting Page
 
-* **Add about-us page - Christian**
+* ~~Add about-us page - Christian~~
 * ~~Username page with form~~
 * ~~Snazzy background image~~
 * ~~LocalStorage~~
